@@ -34,7 +34,7 @@ public class LoginRequestHandler implements RequestHandler {
 		//Creamos el usuario a buscar en la BBDD
 		es.rotolearn.entities.Admin aux = new es.rotolearn.entities.Admin();
 		aux.setNickname(nick);
-		aux.setPassword(pass);
+		aux.setPass(pass);
 		
 		//PARA BUSCAR EL USUARIO QUE HEMOS RECIBIDO POR PARAMETROS, si devuelve null no existe si devuelve algo es que existe
 		tx.begin();//Comenzamos la transaccion
@@ -51,7 +51,7 @@ public class LoginRequestHandler implements RequestHandler {
 			if(resultado.getNickname().equals(nick)){
 				//System.out.println("Usuario administrador, puede entrar");
 				
-				if(resultado.getPassword().equals(pass)){
+				if(resultado.getPass().equals(pass)){
 					//System.out.println("Pass correcta, puede entrar");
 					
 					session = ((HttpServletRequest) request).getSession();

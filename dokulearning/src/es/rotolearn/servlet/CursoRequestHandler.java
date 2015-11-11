@@ -12,7 +12,7 @@ public class CursoRequestHandler implements RequestHandler {
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String ruta = "profes_crearcurso.jsp";
 		
-		request.getParameter("titulo");
+		
 		request.getParameter("descripcion");
 	    request.getParameter("dificultad");
 	    request.getParameter("horas");

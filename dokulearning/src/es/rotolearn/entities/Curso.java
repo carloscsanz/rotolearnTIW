@@ -18,62 +18,48 @@ public class Curso implements Serializable {
 	@EmbeddedId
 	private CursoPK id;
 
-	@Column(name="Borrado")
-	private byte borrado;
-
-	@Column(name="Certificado")
-	private String certificado;
+	@Column(name="Categoria")
+	private String categoria;
 
 	@Column(name="Descripcion")
 	private String descripcion;
 
 	@Column(name="Destacado")
-	private byte destacado;
+	private String destacado;
+
+	@Column(name="Dificultad")
+	private String dificultad;
 
 	@Column(name="Email_paypal")
 	private String email_paypal;
 
-	@Column(name="Evaluacion")
-	private String evaluacion;
-
-	@Column(name="Imagen")
-	private String imagen;
-
-	@Column(name="N_Horas")
-	private int n_Horas;
+	@Column(name="Horas")
+	private int horas;
 
 	@Column(name="Precio")
 	private int precio;
 
 	@Column(name="Validado")
-	private byte validado;
-
-	//bi-directional many-to-one association to Cupon
-	@OneToMany(mappedBy="cursoBean")
-	private List<Cupon> cupons;
+	private String validado;
 
 	//bi-directional many-to-one association to Usuario
 	@ManyToOne
 	@JoinColumn(name="Profesor")
 	private Usuario usuario;
 
-	//bi-directional many-to-one association to Dificultad
-	@ManyToOne
-	@JoinColumn(name="Dificultad")
-	private Dificultad dificultadBean;
-
-	//bi-directional many-to-one association to Tematica
-	@ManyToOne
-	@JoinColumn(name="Tematica")
-	private Tematica tematicaBean;
-
-	//bi-directional one-to-one association to ProfesoresAsociado
-	@OneToOne(mappedBy="cursoBean")
-	private ProfesoresAsociado profesoresAsociado;
-
-	//bi-directional many-to-one association to Seccion
-	@OneToMany(mappedBy="cursoBean")
-	private List<Seccion> seccions;
+	//bi-directional many-to-many association to Usuario
+	@ManyToMany
+	@JoinTable(
+		name="CURSO_ALUMNO"
+		, joinColumns={
+			@JoinColumn(name="Profesor", referencedColumnName="Titulo"),
+			@JoinColumn(name="Titulo", referencedColumnName="Profesor")
+			}
+		, inverseJoinColumns={
+			@JoinColumn(name="Nickname")
+			}
+		)
+	private List<Usuario> usuarios;
 
 	public Curso() {
 	}
@@ -86,20 +72,12 @@ public class Curso implements Serializable {
 		this.id = id;
 	}
 
-	public byte getBorrado() {
-		return this.borrado;
+	public String getCategoria() {
+		return this.categoria;
 	}
 
-	public void setBorrado(byte borrado) {
-		this.borrado = borrado;
-	}
-
-	public String getCertificado() {
-		return this.certificado;
-	}
-
-	public void setCertificado(String certificado) {
-		this.certificado = certificado;
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
 
 	public String getDescripcion() {
@@ -110,12 +88,20 @@ public class Curso implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public byte getDestacado() {
+	public String getDestacado() {
 		return this.destacado;
 	}
 
-	public void setDestacado(byte destacado) {
+	public void setDestacado(String destacado) {
 		this.destacado = destacado;
+	}
+
+	public String getDificultad() {
+		return this.dificultad;
+	}
+
+	public void setDificultad(String dificultad) {
+		this.dificultad = dificultad;
 	}
 
 	public String getEmail_paypal() {
@@ -126,28 +112,12 @@ public class Curso implements Serializable {
 		this.email_paypal = email_paypal;
 	}
 
-	public String getEvaluacion() {
-		return this.evaluacion;
+	public int getHoras() {
+		return this.horas;
 	}
 
-	public void setEvaluacion(String evaluacion) {
-		this.evaluacion = evaluacion;
-	}
-
-	public String getImagen() {
-		return this.imagen;
-	}
-
-	public void setImagen(String imagen) {
-		this.imagen = imagen;
-	}
-
-	public int getN_Horas() {
-		return this.n_Horas;
-	}
-
-	public void setN_Horas(int n_Horas) {
-		this.n_Horas = n_Horas;
+	public void setHoras(int horas) {
+		this.horas = horas;
 	}
 
 	public int getPrecio() {
@@ -158,34 +128,12 @@ public class Curso implements Serializable {
 		this.precio = precio;
 	}
 
-	public byte getValidado() {
+	public String getValidado() {
 		return this.validado;
 	}
 
-	public void setValidado(byte validado) {
+	public void setValidado(String validado) {
 		this.validado = validado;
-	}
-
-	public List<Cupon> getCupons() {
-		return this.cupons;
-	}
-
-	public void setCupons(List<Cupon> cupons) {
-		this.cupons = cupons;
-	}
-
-	public Cupon addCupon(Cupon cupon) {
-		getCupons().add(cupon);
-		cupon.setCursoBean(this);
-
-		return cupon;
-	}
-
-	public Cupon removeCupon(Cupon cupon) {
-		getCupons().remove(cupon);
-		cupon.setCursoBean(null);
-
-		return cupon;
 	}
 
 	public Usuario getUsuario() {
@@ -196,50 +144,12 @@ public class Curso implements Serializable {
 		this.usuario = usuario;
 	}
 
-	public Dificultad getDificultadBean() {
-		return this.dificultadBean;
+	public List<Usuario> getUsuarios() {
+		return this.usuarios;
 	}
 
-	public void setDificultadBean(Dificultad dificultadBean) {
-		this.dificultadBean = dificultadBean;
-	}
-
-	public Tematica getTematicaBean() {
-		return this.tematicaBean;
-	}
-
-	public void setTematicaBean(Tematica tematicaBean) {
-		this.tematicaBean = tematicaBean;
-	}
-
-	public ProfesoresAsociado getProfesoresAsociado() {
-		return this.profesoresAsociado;
-	}
-
-	public void setProfesoresAsociado(ProfesoresAsociado profesoresAsociado) {
-		this.profesoresAsociado = profesoresAsociado;
-	}
-
-	public List<Seccion> getSeccions() {
-		return this.seccions;
-	}
-
-	public void setSeccions(List<Seccion> seccions) {
-		this.seccions = seccions;
-	}
-
-	public Seccion addSeccion(Seccion seccion) {
-		getSeccions().add(seccion);
-		seccion.setCursoBean(this);
-
-		return seccion;
-	}
-
-	public Seccion removeSeccion(Seccion seccion) {
-		getSeccions().remove(seccion);
-		seccion.setCursoBean(null);
-
-		return seccion;
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
 	}
 
 }

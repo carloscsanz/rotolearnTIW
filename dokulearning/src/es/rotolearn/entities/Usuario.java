@@ -37,8 +37,8 @@ public class Usuario implements Serializable {
 	private String email;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="Fecha_Nacimiento")
-	private Date fecha_Nacimiento;
+	@Column(name="Fecha_nac")
+	private Date fecha_nac;
 
 	@Column(name="Imagen")
 	private String imagen;
@@ -52,23 +52,19 @@ public class Usuario implements Serializable {
 	@Column(name="Pass")
 	private String pass;
 
-	@Column(name="Profesor")
-	private byte profesor;
-
 	@Column(name="Telefono")
 	private String telefono;
 
+	@Column(name="Tipo")
+	private String tipo;
+
 	//bi-directional many-to-one association to Curso
 	@OneToMany(mappedBy="usuario")
-	private List<Curso> cursos;
+	private List<Curso> cursos1;
 
-	//bi-directional many-to-one association to Logro
-	@OneToMany(mappedBy="usuarioBean")
-	private List<Logro> logros;
-
-	//bi-directional many-to-one association to ProfesoresAsociado
-	@OneToMany(mappedBy="usuario")
-	private List<ProfesoresAsociado> profesoresAsociados;
+	//bi-directional many-to-many association to Curso
+	@ManyToMany(mappedBy="usuarios")
+	private List<Curso> cursos2;
 
 	public Usuario() {
 	}
@@ -121,12 +117,12 @@ public class Usuario implements Serializable {
 		this.email = email;
 	}
 
-	public Date getFecha_Nacimiento() {
-		return this.fecha_Nacimiento;
+	public Date getFecha_nac() {
+		return this.fecha_nac;
 	}
 
-	public void setFecha_Nacimiento(Date fecha_Nacimiento) {
-		this.fecha_Nacimiento = fecha_Nacimiento;
+	public void setFecha_nac(Date fecha_nac) {
+		this.fecha_nac = fecha_nac;
 	}
 
 	public String getImagen() {
@@ -161,14 +157,6 @@ public class Usuario implements Serializable {
 		this.pass = pass;
 	}
 
-	public byte getProfesor() {
-		return this.profesor;
-	}
-
-	public void setProfesor(byte profesor) {
-		this.profesor = profesor;
-	}
-
 	public String getTelefono() {
 		return this.telefono;
 	}
@@ -177,70 +165,42 @@ public class Usuario implements Serializable {
 		this.telefono = telefono;
 	}
 
-	public List<Curso> getCursos() {
-		return this.cursos;
+	public String getTipo() {
+		return this.tipo;
 	}
 
-	public void setCursos(List<Curso> cursos) {
-		this.cursos = cursos;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
-	public Curso addCurso(Curso curso) {
-		getCursos().add(curso);
-		curso.setUsuario(this);
-
-		return curso;
+	public List<Curso> getCursos1() {
+		return this.cursos1;
 	}
 
-	public Curso removeCurso(Curso curso) {
-		getCursos().remove(curso);
-		curso.setUsuario(null);
-
-		return curso;
+	public void setCursos1(List<Curso> cursos1) {
+		this.cursos1 = cursos1;
 	}
 
-	public List<Logro> getLogros() {
-		return this.logros;
+	public Curso addCursos1(Curso cursos1) {
+		getCursos1().add(cursos1);
+		cursos1.setUsuario(this);
+
+		return cursos1;
 	}
 
-	public void setLogros(List<Logro> logros) {
-		this.logros = logros;
+	public Curso removeCursos1(Curso cursos1) {
+		getCursos1().remove(cursos1);
+		cursos1.setUsuario(null);
+
+		return cursos1;
 	}
 
-	public Logro addLogro(Logro logro) {
-		getLogros().add(logro);
-		logro.setUsuarioBean(this);
-
-		return logro;
+	public List<Curso> getCursos2() {
+		return this.cursos2;
 	}
 
-	public Logro removeLogro(Logro logro) {
-		getLogros().remove(logro);
-		logro.setUsuarioBean(null);
-
-		return logro;
-	}
-
-	public List<ProfesoresAsociado> getProfesoresAsociados() {
-		return this.profesoresAsociados;
-	}
-
-	public void setProfesoresAsociados(List<ProfesoresAsociado> profesoresAsociados) {
-		this.profesoresAsociados = profesoresAsociados;
-	}
-
-	public ProfesoresAsociado addProfesoresAsociado(ProfesoresAsociado profesoresAsociado) {
-		getProfesoresAsociados().add(profesoresAsociado);
-		profesoresAsociado.setUsuario(this);
-
-		return profesoresAsociado;
-	}
-
-	public ProfesoresAsociado removeProfesoresAsociado(ProfesoresAsociado profesoresAsociado) {
-		getProfesoresAsociados().remove(profesoresAsociado);
-		profesoresAsociado.setUsuario(null);
-
-		return profesoresAsociado;
+	public void setCursos2(List<Curso> cursos2) {
+		this.cursos2 = cursos2;
 	}
 
 }
