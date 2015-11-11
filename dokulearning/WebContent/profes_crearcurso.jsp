@@ -95,37 +95,41 @@
 					    <label  for="titulo">T&iacute;tulo</label>
 						<input type="text" class="form-control" name="titulo" placeholder="Introduce el t&iacute;tulo que tendr&aacute; tu curso" required>
 					</div>
+					<div class="form-group">
+						<label  for="categoria"><span class="red">*</span>Categor&iacute;a</label>
+						<input type="text" class="form-control" name="categoria" placeholder="Introduce la categor&iacute;a de tu curso" required>
+					</div>
 					<div class="form-group">	
 					    <label for="moreinfo">Descripci&oacute;n</label>
-						<textarea class="form-control" rows="4" placeholder="Describe en que consiste el curso"></textarea>
+						<textarea class="form-control" rows="4" placeholder="Describe en que consiste el curso" required></textarea>
 					</div>
 					<div class="form-group">
 					    <label  for="nivel">Dificultad</label>
 					    <select name="dificultad" class="form-control">
-						    <option>B&aacute;sico</option>
-						    <option>Intermedio</option>
-						    <option>Avanzado</option>
+						    <option value="basico">B&aacute;sico</option>
+						    <option value="intermedio">Intermedio</option>
+						    <option value="avanzado">Avanzado</option>
 						</select>
 				    </div>		 
 					<div class="form-group">
 						<label  for="horas">Horas de dedicaci&oacute;n</label>
-						<input type="number" class="form-control" id="horas" min="1" max="240" placeholder="Introduce las horas de dedicaci&oacute;n que requiere el curso" required>
+						<input type="number" class="form-control" name="horas" min="1" max="240" placeholder="Introduce las horas de dedicaci&oacute;n que requiere el curso" required>
 					</div>	 
 					<div class="form-group">
 					    <label  for="precio">Precio matricula</label>
-						<input type="number" class="form-control" id="precio" min="0" max="6000" placeholder="Introduce el precio del curso" required>
+						<input type="number" class="form-control" name="precio" min="0" max="6000" placeholder="Introduce el precio del curso" required>
 					</div>
 						     
 					<div class="form-group">
 						<label  for="foto">Imagen del curso</label>
-						<input type="file" id="exampleInputFile">
+						<input type="file" name="exampleInputFile">
 						</dive>
 						<p class="help-block">El formato debe ser jpg</p>
 					</div>
 					<h2>Informaci&oacute;n de cobro</h2>
 					<div class="form-group" id="desplegable">					
 						<label  for="paypal"><span class="red">*</span>Correo de paypal</label>
-						<input type="text" class="form-control" id="paypal" placeholder="Introduce tu correo de paypal" required>
+						<input type="text" class="form-control" name="paypal" placeholder="Introduce tu correo de paypal" required>
 					</div>
 					<div class="form-group">
 					    <button type="submit" class="btn btn-success">Solicitud de alta</button>
