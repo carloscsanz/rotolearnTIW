@@ -36,6 +36,9 @@ public class Curso implements Serializable {
 	@Column(name="Horas")
 	private int horas;
 
+	@Column(name="Imagen")
+	private String imagen;
+
 	@Column(name="Precio")
 	private int precio;
 
@@ -60,6 +63,10 @@ public class Curso implements Serializable {
 			}
 		)
 	private List<Usuario> usuarios;
+
+	//bi-directional many-to-one association to CursoAlumno
+	@OneToMany(mappedBy="curso")
+	private List<CursoAlumno> cursoAlumnos;
 
 	public Curso() {
 	}
@@ -120,6 +127,14 @@ public class Curso implements Serializable {
 		this.horas = horas;
 	}
 
+	public String getImagen() {
+		return this.imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
 	public int getPrecio() {
 		return this.precio;
 	}
@@ -150,6 +165,28 @@ public class Curso implements Serializable {
 
 	public void setUsuarios(List<Usuario> usuarios) {
 		this.usuarios = usuarios;
+	}
+
+	public List<CursoAlumno> getCursoAlumnos() {
+		return this.cursoAlumnos;
+	}
+
+	public void setCursoAlumnos(List<CursoAlumno> cursoAlumnos) {
+		this.cursoAlumnos = cursoAlumnos;
+	}
+
+	public CursoAlumno addCursoAlumno(CursoAlumno cursoAlumno) {
+		getCursoAlumnos().add(cursoAlumno);
+		cursoAlumno.setCurso(this);
+
+		return cursoAlumno;
+	}
+
+	public CursoAlumno removeCursoAlumno(CursoAlumno cursoAlumno) {
+		getCursoAlumnos().remove(cursoAlumno);
+		cursoAlumno.setCurso(null);
+
+		return cursoAlumno;
 	}
 
 }

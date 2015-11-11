@@ -93,7 +93,7 @@
 		        	<h2>Creaci&oacute;n de curso</h2>
 					<div class="form-group">
 					    <label  for="titulo">T&iacute;tulo</label>
-						<input type="text" class="form-control" id="titulo" placeholder="Introduce el t&iacute;tulo que tendr&aacute; tu curso" required>
+						<input type="text" class="form-control" name="titulo" placeholder="Introduce el t&iacute;tulo que tendr&aacute; tu curso" required>
 					</div>
 					<div class="form-group">	
 					    <label for="moreinfo">Descripci&oacute;n</label>

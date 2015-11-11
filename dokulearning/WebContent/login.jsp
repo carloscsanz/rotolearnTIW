@@ -64,26 +64,6 @@
 	                    	}
 	                  	}
 	                %>
-                    <%--  <%
-                      if(session.getAttribute("error") != null)
-                      if(session.getAttribute("error").equals("si")){
-                    %>
-						<div class="alert alert-danger">
-							<strong>&iexcl;Cuidado!</strong> &iexcl;Los datos son incorrectos!
-						</div>
-                    <%
-                      }
-                    %>
-                    <%
-                      if(request.getAttribute("registro") != null)
-                      if(request.getAttribute("registro").equals("ok")){
-                    %>
-						<div class="alert alert-success">
-							<strong>&iexcl;Enhorabuena!</strong> &iexcl;Te has registrado con &eacute;xito!
-						</div>
-                    <%
-                      }
-                    --%>
                   <div class="form-group">
                     <input type="text" class="form-control input-lg" name="Nickname" placeholder="Nickname">
                   </div>

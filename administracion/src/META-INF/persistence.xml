@@ -4,6 +4,8 @@
 		<class>es.rotolearn.entities.Admin</class>
 		<class>es.rotolearn.entities.Curso</class>
 		<class>es.rotolearn.entities.CursoPK</class>
+		<class>es.rotolearn.entities.CursoAlumno</class>
+		<class>es.rotolearn.entities.CursoAlumnoPK</class>
 		<class>es.rotolearn.entities.Usuario</class>
 		
 		<properties>
