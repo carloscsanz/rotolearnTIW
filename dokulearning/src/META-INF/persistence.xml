@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="dokulearning" transaction-type="RESOURCE_LOCAL">
+		<class>es.rotolearn.entities.Admin</class>
+		<class>es.rotolearn.entities.Cupon</class>
+		<class>es.rotolearn.entities.CuponPK</class>
+		<class>es.rotolearn.entities.Curso</class>
+		<class>es.rotolearn.entities.CursoPK</class>
+		<!--  <class>es.rotolearn.entities.CursosYAlumno</class>
+		<class>es.rotolearn.entities.CursosYAlumnoPK</class>-->
+		<class>es.rotolearn.entities.Dificultad</class>
+		<class>es.rotolearn.entities.EstadoCurso</class>
+		<class>es.rotolearn.entities.Leccion</class>
+		<class>es.rotolearn.entities.LeccionPK</class>
+		<class>es.rotolearn.entities.Logro</class>
+		<class>es.rotolearn.entities.LogroPK</class>
+		<class>es.rotolearn.entities.Material</class>
+		<class>es.rotolearn.entities.MaterialPK</class>
+		<class>es.rotolearn.entities.ProfesoresAsociado</class>
+		<class>es.rotolearn.entities.ProfesoresAsociadoPK</class>
+		<class>es.rotolearn.entities.Seccion</class>
+		<class>es.rotolearn.entities.SeccionPK</class>
+		<class>es.rotolearn.entities.Tematica</class>
+		<class>es.rotolearn.entities.TipoCupon</class>
+		<class>es.rotolearn.entities.Usuario</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/rotolearnbd"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.password" value="admin"/>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+		</properties>
+	</persistence-unit>
+</persistence>
