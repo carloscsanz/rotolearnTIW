@@ -30,7 +30,8 @@ public class LoginRequestHandler implements RequestHandler {
 				
 				if(pass.equals("admin")){
 					System.out.println("Pass correcta, puede entrar");
-					//Hay que guardar los datos del user en un BEAN para poder utilizarlos en otras paginas
+					//RBN Hay que guardar los datos del user en un BEAN
+					//para poder saber que tipo de usuario es y su nick minimo
 					session = ((HttpServletRequest) request).getSession();
 					session.setAttribute("logueado", "true");
 					session.setAttribute("usuario",nick);
