@@ -99,7 +99,7 @@
             </nav>
         </div>
     </header>
-    <!--FIN CABECERA-->
+    <!--FIN CABECERA
     <div class="container-fluid">
 	    <div class="row" id="buscador">
             <div class="col-md-12">
@@ -109,10 +109,17 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div>-->
     <div class="container-fluid">
 	    <div class="row" id="cuerpo">
-            <div class="col-md-12">
+	    	<div id="bAvanzada" class="col-md-2">
+                <form class=".form-inline" id="searchform" action="#">
+					    <label for="inputdefault">Palabra clave</label>
+					    <input class="form-control" id="palabra_clave" type="text">
+					    <button id="palabra_clave_submit" type="submit" class="btn btn-default">Filtrar</button>
+                </form>
+            </div>
+            <div id="cursos" class="col-md-10">
                 <ul class="portfolio-items">
                     <li class="portfolio-item col-md-2">
                         <div class="itemCatalogo">
@@ -280,67 +287,63 @@
                         </div>           
                     </li>
                 </ul>
+	           <div class="col-md-7 col-md-offset-4">
+	    	        <ul class="pagination">
+	                        <li><a href="#">Primero</a></li>
+	                        <li><a href="#">&laquo;</a></li>
+	                        <li><a href="#">1</a></li>
+	                        <li><a href="#">2</a></li>
+	                        <li><a href="#">3</a></li>
+	                        <li><a href="#">&raquo;</a></li>
+	                        <li><a href="#">&Uacute;ltimo</a></li>
+	                </ul>
+	            </div>
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-	    <div class="row">
-	        <div class="col-md-7 col-md-offset-5">
-    	        <ul class="pagination">
-                        <li><a href="#">Primero</a></li>
-                        <li><a href="#">&laquo;</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">&raquo;</a></li>
-                        <li><a href="#">&Uacute;ltimo</a></li>
-                </ul>
-            </div>
-        </div>
+    <!--PIE DE PAGINA-->
+    <footer>
+    <div class="container-fluid" id="pie">
+    	<div class="row">
+    		<div class="col-md-3 col-md-offset-1" id="footer-left">
+    			<img class="logotipo img-responsive" src="./images/logo.png">
+                <p class="footer-links">
+    				<a href="index.jsp">Home</a> &#45;
+    				<a href="https://www.forocoches.com/">Faq</a> &#45;
+    				<a href="#">Contact</a>
+    			</p>
+    			<p class="footer-company-name">Roto2 Company &copy; 2015</p>
+    		</div>
+    		<div class="col-md-3 col-md-offset-1" id="footer-center">
+    			<div>
+    				<i class="fa fa-map-marker"></i>
+    				<p><span>6 Calle Jaime Balmes</span> Le&oacute;n, Castilla y Le&oacute;n</p>
+    			</div>
+    			<div>
+    				<i class="fa fa-phone"></i>
+    				<p>+34 288 288 288</p>
+    			</div>
+    			<div>
+    				<i class="fa fa-envelope"></i>
+    				<p><a href="mailto:support@rotolearn.com">support@rotolearn.com</a></p>
+    			</div>
+    		</div>
+    		<div class="col-md-3 col-md-offset-1" id="footer-right">
+    			<p class="footer-company-about">
+    				<span>Sobre la compa&ntilde;ia</span>
+    				Roto2 Company lleva afincada en el sector del software desde que Ilitri fund&oacute; un equipo lleno de peque&ntilde;os troles y ni&ntilde;os ratas. 
+    			</p>
+    			<div class="footer-icons">
+    				<a href="#"><i class="fa fa-facebook"></i></a>
+    				<a href="#"><i class="fa fa-twitter"></i></a>
+    				<a href="#"><i class="fa fa-linkedin"></i></a>
+    				<a href="#"><i class="fa fa-github"></i></a>
+    			</div>
+    		</div>
+    	</div>
     </div>
-        <!--PIE DE PAGINA-->
-        <footer>
-	    <div class="container-fluid" id="pie">
-	    	<div class="row">
-	    		<div class="col-md-3 col-md-offset-1" id="footer-left">
-	    			<img class="logotipo img-responsive" src="./images/logo.png">
-	                <p class="footer-links">
-	    				<a href="index.jsp">Home</a> &#45;
-	    				<a href="https://www.forocoches.com/">Faq</a> &#45;
-	    				<a href="#">Contact</a>
-	    			</p>
-	    			<p class="footer-company-name">Roto2 Company &copy; 2015</p>
-	    		</div>
-	    		<div class="col-md-3 col-md-offset-1" id="footer-center">
-	    			<div>
-	    				<i class="fa fa-map-marker"></i>
-	    				<p><span>6 Calle Jaime Balmes</span> Le&oacute;n, Castilla y Le&oacute;n</p>
-	    			</div>
-	    			<div>
-	    				<i class="fa fa-phone"></i>
-	    				<p>+34 288 288 288</p>
-	    			</div>
-	    			<div>
-	    				<i class="fa fa-envelope"></i>
-	    				<p><a href="mailto:support@rotolearn.com">support@rotolearn.com</a></p>
-	    			</div>
-	    		</div>
-	    		<div class="col-md-3 col-md-offset-1" id="footer-right">
-	    			<p class="footer-company-about">
-	    				<span>Sobre la compa&ntilde;ia</span>
-	    				Roto2 Company lleva afincada en el sector del software desde que Ilitri fund&oacute; un equipo lleno de peque&ntilde;os troles y ni&ntilde;os ratas. 
-	    			</p>
-	    			<div class="footer-icons">
-	    				<a href="#"><i class="fa fa-facebook"></i></a>
-	    				<a href="#"><i class="fa fa-twitter"></i></a>
-	    				<a href="#"><i class="fa fa-linkedin"></i></a>
-	    				<a href="#"><i class="fa fa-github"></i></a>
-	    			</div>
-	    		</div>
-	    	</div>
-	    </div>
-	    </footer>
-        <!--FIN PIE DE PAGINA-->
+    </footer>
+       <!--FIN PIE DE PAGINA-->
 
 </body>
 </html>
