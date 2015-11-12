@@ -161,8 +161,9 @@ body{
 
 #bAvanzada{
 	padding-top: 30px;
-	color:white;
+	color:black;
 	padding-bottom: 30px;
+	padding-left: 10px;
 }
 
 #cursos{
@@ -173,3 +174,13 @@ body{
 	background-color:#F0F0F0;
 }
 
+#FiltroCategoria{
+	font-weight:normal;
+}
+
+.busqueda{
+	margin-top:20px;
+}
+.busqueda input{
+	margin-left:10px;
+}

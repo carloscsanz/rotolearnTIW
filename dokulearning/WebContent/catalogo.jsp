@@ -113,12 +113,18 @@
     <div class="container-fluid">
 	    <div class="row" id="cuerpo">
 	    	<div id="bAvanzada" class="col-md-2">
-                <form class=".form-inline" id="searchform" action="#">
-					    <label for="inputdefault">Palabra clave</label>
-					    <input class="form-control" id="palabra_clave" type="text">
+                <form  id="FiltroTag" class="busqueda" action="#">
+					    <h3>Palabra clave</h3><br>
+					    <input class="form-control" id="palabra_clave" type="text" placeholder="Java, android, edici&oacute;n de videos, ..."><br>
+					    <h3>Categor&iacute;as </h3><br>
+      					<h4><input type="checkbox"> Inform&aacute;tica</h4>
+      					<h4><input type="checkbox"> Idiomas</h4>
+      					<h4><input type="checkbox"> Rob&oacute;tica</h4>
+      					<h4><input type="checkbox"> Manualidades</h4><br>
 					    <button id="palabra_clave_submit" type="submit" class="btn btn-default">Filtrar</button>
                 </form>
             </div>
+
             <div id="cursos" class="col-md-10">
                 <ul class="portfolio-items">
                     <li class="portfolio-item col-md-2">
@@ -127,7 +133,7 @@
                             <h5>Curso de iniciaci&oacute;n a la inform&aacute;tica</h5>
                             <h1 class="precios"><span class="precio">75$</span><span class="precioAntiguo">100$</span></h1>
                             <div class="overlay">
-                                <a class="preview glyphicon glyphicon-shopping-cart" href="#" rel="prettyPhoto"><br><span>Comprar</span></a>
+                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
                                 <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
                             </div>           
                         </div>           
@@ -138,7 +144,7 @@
                             <h5>Las Redes Sociales y los CEO</h5>
                             <h1 class="precios"><span class="precio">70$</span><span class="precioAntiguo">90$</span></h1>
                             <div class="overlay">
-                                <a class="preview glyphicon glyphicon-shopping-cart" href="#" rel="prettyPhoto"><br><span>Comprar</span></a>
+                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
                                 <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
                             </div>           
                         </div>           
@@ -149,7 +155,7 @@
                             <h5>Instagram:descubre sus secretos.</h5>
                             <h1 class="precios"><span class="precio">30$</span><span class="precioAntiguo">100$</span></h1>
                             <div class="overlay">
-                                <a class="preview glyphicon glyphicon-shopping-cart" href="#" rel="prettyPhoto"><br><span>Comprar</span></a>
+                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
                                 <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
                             </div>           
                         </div>           
@@ -160,7 +166,7 @@
                             <h5>La verdad sobre Twitter: como ser un influencer</h5>
                             <h1 class="precios"><span class="precio">80$</span><span class="precioAntiguo">200$</span></h1>
                             <div class="overlay">
-                                <a class="preview glyphicon glyphicon-shopping-cart" href="#" rel="prettyPhoto"><br><span>Comprar</span></a>
+                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
                                 <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
                             </div>           
                         </div>           
@@ -171,7 +177,7 @@
                             <h5>La Historia y la infor&aacute;tica</h5>
                             <h1 class="precios"><span class="precio">50$</span><span class="precioAntiguo">100$</span></h1>
                             <div class="overlay">
-                                <a class="preview glyphicon glyphicon-shopping-cart" href="#" rel="prettyPhoto"><br><span>Comprar</span></a>
+                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
                                 <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
                             </div>           
                         </div>           
@@ -182,7 +188,7 @@
                             <h5>La influencia de las guerras en las RRSS</h5>
                             <h1 class="precios"><span class="precio">10$</span><span class="precioAntiguo">40$</span></h1>
                             <div class="overlay">
-                                <a class="preview glyphicon glyphicon-shopping-cart" href="#" rel="prettyPhoto"><br><span>Comprar</span></a>
+                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
                                 <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
                             </div>           
                         </div>           
@@ -193,7 +199,7 @@
                             <h5>Arduino for dummies</h5>
                             <h1 class="precios"><span class="precio">50$</span><span class="precioAntiguo">100$</span></h1>
                             <div class="overlay">
-                                <a class="preview glyphicon glyphicon-shopping-cart" href="#" rel="prettyPhoto"><br><span>Comprar</span></a>
+                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
                                 <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
                             </div>           
                         </div>           
@@ -204,7 +210,7 @@
                             <h5>Crea tu propio microrobot</h5>
                             <h1 class="precios"><span class="precio">60$</span><span class="precioAntiguo">100$</span></h1>
                             <div class="overlay">
-                                <a class="preview glyphicon glyphicon-shopping-cart" href="#" rel="prettyPhoto"><br><span>Comprar</span></a>
+                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
                                 <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
                             </div>           
                         </div>           
@@ -215,7 +221,7 @@
                             <h5>Conviertete en un villano de pel&iacute;cula</h5>
                             <h1 class="precios"><span class="precio">1000$</span><span class="precioAntiguo">3000$</span></h1>
                             <div class="overlay">
-                                <a class="preview glyphicon glyphicon-shopping-cart" href="#" rel="prettyPhoto"><br><span>Comprar</span></a>
+                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
                                 <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
                             </div>           
                         </div>           
@@ -226,7 +232,7 @@
                             <h5>Como encontrar m&aacute;s ideas para t&iacute;tulos de cursos</h5>
                             <h1 class="precios"><span class="precio">50$</span><span class="precioAntiguo">100$</span></h1>
                             <div class="overlay">
-                                <a class="preview glyphicon glyphicon-shopping-cart" href="#" rel="prettyPhoto"><br><span>Comprar</span></a>
+                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
                                 <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
                             </div>           
                         </div>           
@@ -237,7 +243,7 @@
                             <h5>Por qu&eacute; me he quedado sin ideas</h5>
                             <h1 class="precios"><span class="precio">50$</span><span class="precioAntiguo">100$</span></h1>
                             <div class="overlay">
-                                <a class="preview glyphicon glyphicon-shopping-cart" href="#" rel="prettyPhoto"><br><span>Comprar</span></a>
+                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
                                 <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
                             </div>           
                         </div>           
@@ -248,7 +254,7 @@
                             <h5>Ayuda personal para aprobar pr&aacute;cticas</h5>
                             <h1 class="precios"><span class="precio">700$</span><span class="precioAntiguo">1000$</span></h1>
                             <div class="overlay">
-                                <a class="preview glyphicon glyphicon-shopping-cart" href="#" rel="prettyPhoto"><br><span>Comprar</span></a>
+                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
                                 <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
                             </div>           
                         </div>           
@@ -259,7 +265,7 @@
                             <h5>League of Legends o como suspender</h5>
                             <h1 class="precios"><span class="precio">50$</span><span class="precioAntiguo">100$</span></h1>
                             <div class="overlay">
-                                <a class="preview glyphicon glyphicon-shopping-cart" href="#" rel="prettyPhoto"><br><span>Comprar</span></a>
+                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
                                 <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
                             </div>           
                         </div>           
@@ -270,7 +276,7 @@
                             <h5>MUSE: el nacimiento de una leyenda</h5>
                             <h1 class="precios"><span class="precio">50$</span><span class="precioAntiguo">100$</span></h1>
                             <div class="overlay">
-                                <a class="preview glyphicon glyphicon-shopping-cart" href="#" rel="prettyPhoto"><br><span>Comprar</span></a>
+                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
                                 <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
                             </div>           
                         </div>           
@@ -281,7 +287,7 @@
                             <h5>Como terminar al fin con el cat&aacute;logo</h5>
                             <h1 class="precios"><span class="precio">50$</span><span class="precioAntiguo">100$</span></h1>
                             <div class="overlay">
-                                <a class="preview glyphicon glyphicon-shopping-cart" href="#" rel="prettyPhoto"><br><span>Comprar</span></a>
+                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
                                 <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
                             </div>           
                         </div>           
