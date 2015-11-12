@@ -171,12 +171,14 @@
                         </div>           
                     </li>
                 </ul>
-            <div id="verMas" class="col-md-12" style="text-align: center">
-            	<a href="catalogo.jsp" class="btn-registro btn btn-lg">Ver m&aacute;s</a>
-            </div>
+
 			<div class="limpiador"></div>
 		</div>
+
 		<div class="limpiador"></div>
+		<div id="verMas">
+           	<a class="verMas col-md-8 col-md-offset-2"" href="catalogo.jsp">Ver m&aacute;s</a>
+        </div>
 		</div>
 	</div>
 			<!--PIE DE PAGINA-->
