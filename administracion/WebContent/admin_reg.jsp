@@ -71,10 +71,10 @@
 	    <!--FIN CABECERA-->
 	    
 	    <!--CUERPO-->
-		    <div id="cuerpo" class="col-lg-12">
-				<div class="container">
+	    <div id="cuerpo" class="container-fluid">
+	    	<div class="row">
 					
-					<%
+				<%
 		        	if(request.getAttribute("error") != null){
 		            	if(request.getAttribute("error").equals("reg")){		
 		        %>
@@ -82,100 +82,115 @@
 							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 						    <strong>Error al crear usuario</strong> Nombre de usuario en uso
 						</div>
-	                 <%
+	             <%
 		         		}else if(request.getAttribute("error").equals("ok")){
 		         %>
 			         	<div class="alert alert-success" style="margin-top:10px" style="margin-bottom:0px">
 	    					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 	    					<strong>Usuario creado correctamente</strong> El usuario ha sido agregado a la base de datos del sistema
 	  					</div>
-	                 <%
+	             <%
 		         		}
 		         	}
 		         %>
 					
-					<form role="form" method="POST" action="reg_user.form">
-					<div class="col-lg-5 col-md-offset-1">
-						<h2>Registro de un nuevo Usuario</h2>
-						<div class="form-group">
-							<label for="user"><span class="red">*</span>Usuario</label>
-						    <label class="radio-inline">
-						      <input type="radio" name="optradio" value="alumn" required>Alumno
-						    </label>
-						    <label class="radio-inline">
-						      <input type="radio" name="optradio" value="profe" required>Profesor
-						    </label>
-						    <label class="radio-inline">
-						      <input type="radio" name="optradio" value="admin" required>Administrador
-						    </label>
-						</div>
+	    		<form role="form" method="POST" action="reg_user.form">
+				<div class="col-md-5 col-md-offset-1">
+					<h2>Registro de un nuevo Usuario</h2>
+					<div class="form-group">
+						<label for="user"><span class="red">*</span>Usuario</label>
+					    <label class="radio-inline">
+					      <input type="radio" name="optradio" value="alumn" required>Alumno
+					    </label>
+					    <label class="radio-inline">
+					      <input type="radio" name="optradio" value="profe" required>Profesor
+					    </label>
+					</div>
+					<div class="form-group">
+						<label  for="nick"><span class="red">*</span>Nickname</label>
+						<input type="text" class="form-control" name="nick" id="nick" placeholder="Introduce tu nick" required>
+					</div>
+					<div class="form-group">						
+						<label  for="nombre"><span class="red">*</span>Nombre</label>
+						<input type="text" class="form-control" name="nombre" id="nombre" placeholder="Introduce tu nombre" required>
+					</div>
+					<div class="form-group">						
+						<label  for="apellido1"><span class="red">*</span>Primer apellido</label>
+						<input type="text" class="form-control" name="apellido1" id="apellido1" placeholder="Introduce tu primer apellido" required>
+					</div>
+					<div class="form-group">						
+						<label  for="apellido2"><span class="red">*</span>Segundo apellido</label>
+						<input type="text" class="form-control" name="apellido2" id="apellido2" placeholder="Introduce tu segundo apellido" required>
+					</div>
+					<div class="form-group">					
+						<label for="email"><span class="red">*</span>Email</label>
+						<input type="email" class="form-control" name="email" placeholder="Introduce tu correo electronico" required>
+					</div>
+					<div class="form-group">					
+						<label for="pass"><span class="red">*</span>Contrase&ntilde;a</label>
+						<input type="password" class="form-control" name="pass" placeholder="Introduce tu contrase&ntilde;a" required>
+					</div>
+					<div class="form-group">
+						<label for="pass2"><span class="red">*</span>Confirmar contrase&ntilde;a</label>
+						<input type="password" class="form-control" name="pass2" placeholder="Confirma tu contrase&ntilde;a" required>
+					</div>
+				</div>
+				<div class="col-md-5" >
+							     
+					<h2>Informaci&oacute;n complementaria</h2>
+					<div class="form-group">
+						<label for="date">Fecha de nacimiento</label>
+						<input type="date" class="form-control" name="date">
+					</div>
+					<div class="form-group">					
+						<label for="direccion"><span class="red">*</span>Direcci&oacute;n</label>
+						<input type="text" class="form-control" name="direccion" placeholder="Introduce tu direcci&oacute;n" required>
+						</dive>
+						</span><p class="help-block">Calle, Puerta, Piso, Localidad, C&oacute;digo postal.</p>
+					</div>
+					<div class="form-group">  					
+						<label  for="descrip">Descripci&oacute;n</label>
+						<textarea class="form-control" rows="4" name="descripcion" placeholder="Escribe una breve descripci&oacute;n sobre ti"></textarea>
+					</div>
+					<div class="form-group">  					
+						<label  for="intereses">Intereses</label>
+						<textarea class="form-control" rows="2" name="intereses" placeholder="Introduce tus intereses"></textarea>
+					</div>
+					<div class="form-group">					
+						<label for="tlf"><span class="red">*</span>Telefono</label>
+						<input type="number" class="form-control" name="tlf" required>
+					</div>
+					<div class="form-group">
+						<label  for="foto">Imagen de perfil</label>
+						<input type="text" class="form-control" name="imagen" id="exampleInputFile" placeholder="Introduce la url en la que se encuentra la imagen" >
+						</dive>
+						<p class="help-block">El formato debe ser jpg</p>
+					</div>
+					<div class="form-group">        
+						<button type="submit" class="btn btn-success">A&ntilde;adir Usuario</button>
+					</div>
+				</div>		     
+				</form>
+	    	</div>
+	    	<div class="row">
+	    		<div class="col-lg-5 col-md-offset-1">
+	   				<form>
+	   					<h2>Registro de un usuario Administrador</h2>
 						<div class="form-group">
 							<label  for="nick"><span class="red">*</span>Nickname</label>
 							<input type="text" class="form-control" name="nick" id="nick" placeholder="Introduce tu nick" required>
 						</div>
-						<div class="form-group">						
-							<label  for="nombre"><span class="red">*</span>Nombre</label>
-							<input type="text" class="form-control" name="nombre" id="nombre" placeholder="Introduce tu nombre" required>
-						</div>
-						<div class="form-group">						
-							<label  for="apellido1"><span class="red">*</span>Primer apellido</label>
-							<input type="text" class="form-control" name="apellido1" id="apellido1" placeholder="Introduce tu primer apellido" required>
-						</div>
-						<div class="form-group">						
-							<label  for="apellido2"><span class="red">*</span>Segundo apellido</label>
-							<input type="text" class="form-control" name="apellido2" id="apellido2" placeholder="Introduce tu segundo apellido" required>
-						</div>
-						<div class="form-group">					
-							<label for="email"><span class="red">*</span>Email</label>
-							<input type="email" class="form-control" name="email" placeholder="Introduce tu correo electronico" required>
-						</div>
-						<div class="form-group">					
+							<div class="form-group">					
 							<label for="pass"><span class="red">*</span>Contrase&ntilde;a</label>
 							<input type="password" class="form-control" name="pass" placeholder="Introduce tu contrase&ntilde;a" required>
-						</div>
-						<div class="form-group">
-							<label for="pass2"><span class="red">*</span>Confirmar contrase&ntilde;a</label>
-							<input type="password" class="form-control" name="pass2" placeholder="Confirma tu contrase&ntilde;a" required>
-						</div>
-					</div>
-					<div class="col-lg-5" >
-								     
-						<h2>Informaci&oacute;n complementaria</h2>
-						<div class="form-group">
-							<label for="date">Fecha de nacimiento</label>
-							<input type="date" class="form-control" name="date">
-						</div>
-						<div class="form-group">					
-							<label for="direccion"><span class="red">*</span>Direcci&oacute;n</label>
-							<input type="text" class="form-control" name="direccion" placeholder="Introduce tu direcci&oacute;n" required>
-							</dive>
-							</span><p class="help-block">Calle, Puerta, Piso, Localidad, C&oacute;digo postal.</p>
-						</div>
-						<div class="form-group">  					
-							<label  for="descrip">Descripci&oacute;n</label>
-							<textarea class="form-control" rows="4" name="descripcion" placeholder="Escribe una breve descripci&oacute;n sobre ti"></textarea>
-						</div>
-						<div class="form-group">  					
-							<label  for="intereses">Intereses</label>
-							<textarea class="form-control" rows="2" name="intereses" placeholder="Introduce tus intereses"></textarea>
-						</div>
-						<div class="form-group">					
-							<label for="tlf"><span class="red">*</span>Telefono</label>
-							<input type="number" class="form-control" name="tlf" required>
-						</div>
-						<div class="form-group">
-							<label  for="foto">Imagen de perfil</label>
-							<input type="file" id="exampleInputFile">
-							</dive>
-							<p class="help-block">El formato debe ser jpg</p>
 						</div>
 						<div class="form-group">        
 							<button type="submit" class="btn btn-success">A&ntilde;adir Usuario</button>
 						</div>
-					</div>		     
-					</form>
+	   				</form>
 				</div>
-			</div>
+	    	</div>
+		</div>
 		<!--FIN CUERPO-->
 	
 	</body>
