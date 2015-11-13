@@ -48,7 +48,8 @@ public class RegistroRequestHandler implements RequestHandler {
 		newUsuario.setApellido1(request.getParameter("apellido1"));
 		newUsuario.setApellido2(request.getParameter("apellido2"));
 		newUsuario.setEmail(request.getParameter("email"));
-		newUsuario.setPass(request.getParameter("pass"));
+		newUsuario.setPass(String.valueOf(request.getParameter("pass").hashCode()));
+		//String.valueOf(request.getParameter("Password").hashCode());
 		//newUsuario.setFecha_Nac(request.getParameter("date")); es un string y espera un date
 		newUsuario.setDireccion(request.getParameter("direccion"));
 		newUsuario.setDescripcion(request.getParameter("descripcion"));

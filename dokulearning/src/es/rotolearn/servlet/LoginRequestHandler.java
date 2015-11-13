@@ -23,7 +23,7 @@ public class LoginRequestHandler implements RequestHandler {
 		//HAY QUE AÑADIR/MODIFICAR PARA METERLE LA BBDD
 		String ruta;
 		String nick = request.getParameter("Nickname");
-		String pass = request.getParameter("Password");
+		String pass = String.valueOf(request.getParameter("Password").hashCode());
 		System.out.println("Nick introducido: "+nick);
 		System.out.println("Pass introducida: "+pass);
 		
