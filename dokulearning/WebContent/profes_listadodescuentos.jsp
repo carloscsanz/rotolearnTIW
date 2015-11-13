@@ -1,4 +1,5 @@
 <jsp:useBean id="perfil" class="es.rotolearn.javaBean.RegistroBean" scope="session"/>
+
 <!DOCTYPE html>
 <html lang="es">
     <head>

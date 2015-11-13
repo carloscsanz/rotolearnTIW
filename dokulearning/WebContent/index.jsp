@@ -176,9 +176,9 @@
 		</div>
 
 		<div class="limpiador"></div>
-		<div id="verMas">
-           	<a class="verMas col-md-8 col-md-offset-2"" href="catalogo.jsp">Ver m&aacute;s</a>
-        </div>
+			<div id="verMas">
+	           	<a class="verMas col-md-8 col-md-offset-2"" href="catalogo.form">Ver m&aacute;s</a>
+	        </div>
 		</div>
 	</div>
 			<!--PIE DE PAGINA-->
