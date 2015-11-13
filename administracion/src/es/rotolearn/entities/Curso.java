@@ -15,8 +15,10 @@ import java.util.List;
 public class Curso implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
-	private CursoPK id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="Titulo")
+	private String titulo;
 
 	@Column(name="Categoria")
 	private String categoria;
@@ -50,20 +52,6 @@ public class Curso implements Serializable {
 	@JoinColumn(name="Profesor")
 	private Usuario usuario;
 
-	//bi-directional many-to-many association to Usuario
-	@ManyToMany
-	@JoinTable(
-		name="CURSO_ALUMNO"
-		, joinColumns={
-			@JoinColumn(name="Profesor", referencedColumnName="Titulo"),
-			@JoinColumn(name="Titulo", referencedColumnName="Profesor")
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="Nickname")
-			}
-		)
-	private List<Usuario> usuarios;
-
 	//bi-directional many-to-one association to CursoAlumno
 	@OneToMany(mappedBy="curso")
 	private List<CursoAlumno> cursoAlumnos;
@@ -71,12 +59,12 @@ public class Curso implements Serializable {
 	public Curso() {
 	}
 
-	public CursoPK getId() {
-		return this.id;
+	public String getTitulo() {
+		return this.titulo;
 	}
 
-	public void setId(CursoPK id) {
-		this.id = id;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public String getCategoria() {
@@ -157,14 +145,6 @@ public class Curso implements Serializable {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}
-
-	public List<Usuario> getUsuarios() {
-		return this.usuarios;
-	}
-
-	public void setUsuarios(List<Usuario> usuarios) {
-		this.usuarios = usuarios;
 	}
 
 	public List<CursoAlumno> getCursoAlumnos() {

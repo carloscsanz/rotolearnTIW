@@ -2,7 +2,6 @@ package es.rotolearn.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
 
 
@@ -36,9 +35,8 @@ public class Usuario implements Serializable {
 	@Column(name="Email")
 	private String email;
 
-	@Temporal(TemporalType.DATE)
 	@Column(name="Fecha_nac")
-	private Date fecha_nac;
+	private String fecha_nac;
 
 	@Column(name="Imagen")
 	private String imagen;
@@ -60,11 +58,7 @@ public class Usuario implements Serializable {
 
 	//bi-directional many-to-one association to Curso
 	@OneToMany(mappedBy="usuario")
-	private List<Curso> cursos1;
-
-	//bi-directional many-to-many association to Curso
-	@ManyToMany(mappedBy="usuarios")
-	private List<Curso> cursos2;
+	private List<Curso> cursos;
 
 	//bi-directional many-to-one association to CursoAlumno
 	@OneToMany(mappedBy="usuario")
@@ -121,11 +115,11 @@ public class Usuario implements Serializable {
 		this.email = email;
 	}
 
-	public Date getFecha_nac() {
+	public String getFecha_nac() {
 		return this.fecha_nac;
 	}
 
-	public void setFecha_nac(Date fecha_nac) {
+	public void setFecha_nac(String fecha_nac) {
 		this.fecha_nac = fecha_nac;
 	}
 
@@ -177,34 +171,26 @@ public class Usuario implements Serializable {
 		this.tipo = tipo;
 	}
 
-	public List<Curso> getCursos1() {
-		return this.cursos1;
+	public List<Curso> getCursos() {
+		return this.cursos;
 	}
 
-	public void setCursos1(List<Curso> cursos1) {
-		this.cursos1 = cursos1;
+	public void setCursos(List<Curso> cursos) {
+		this.cursos = cursos;
 	}
 
-	public Curso addCursos1(Curso cursos1) {
-		getCursos1().add(cursos1);
-		cursos1.setUsuario(this);
+	public Curso addCurso(Curso curso) {
+		getCursos().add(curso);
+		curso.setUsuario(this);
 
-		return cursos1;
+		return curso;
 	}
 
-	public Curso removeCursos1(Curso cursos1) {
-		getCursos1().remove(cursos1);
-		cursos1.setUsuario(null);
+	public Curso removeCurso(Curso curso) {
+		getCursos().remove(curso);
+		curso.setUsuario(null);
 
-		return cursos1;
-	}
-
-	public List<Curso> getCursos2() {
-		return this.cursos2;
-	}
-
-	public void setCursos2(List<Curso> cursos2) {
-		this.cursos2 = cursos2;
+		return curso;
 	}
 
 	public List<CursoAlumno> getCursoAlumnos() {

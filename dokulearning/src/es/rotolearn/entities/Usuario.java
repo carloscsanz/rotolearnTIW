@@ -2,7 +2,6 @@ package es.rotolearn.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
 
 
@@ -17,7 +16,7 @@ public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	//@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="Nickname")
 	private String nickname;
 
@@ -36,9 +35,8 @@ public class Usuario implements Serializable {
 	@Column(name="Email")
 	private String email;
 
-	@Temporal(TemporalType.DATE)
 	@Column(name="Fecha_nac")
-	private Date fecha_nac;
+	private String fecha_nac;
 
 	@Column(name="Imagen")
 	private String imagen;
@@ -117,11 +115,11 @@ public class Usuario implements Serializable {
 		this.email = email;
 	}
 
-	public Date getFecha_nac() {
+	public String getFecha_nac() {
 		return this.fecha_nac;
 	}
 
-	public void setFecha_nac(Date fecha_nac) {
+	public void setFecha_nac(String fecha_nac) {
 		this.fecha_nac = fecha_nac;
 	}
 

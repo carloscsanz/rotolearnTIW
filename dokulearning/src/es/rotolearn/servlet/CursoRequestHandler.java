@@ -9,17 +9,23 @@ import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import es.rotolearn.javaBean.RegistroBean;
 
 public class CursoRequestHandler implements RequestHandler {
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String ruta = "profes_crearcurso.jsp";
+		HttpSession session;
+		session = ((HttpServletRequest) request).getSession();
+		RegistroBean reg = (RegistroBean) session.getAttribute("perfil");
 		
 		es.rotolearn.entities.Curso crear_curso = new es.rotolearn.entities.Curso();
 		crear_curso.setTitulo(request.getParameter("titulo"));
 		es.rotolearn.entities.Usuario user = new es.rotolearn.entities.Usuario();
-		user.setNickname("profe");
+		user.setNickname(reg.getNickName());
 		crear_curso.setUsuario(user);
 		crear_curso.setDescripcion(request.getParameter("descripcion"));
 		crear_curso.setDificultad(request.getParameter("dificultad"));
