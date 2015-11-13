@@ -2,6 +2,7 @@ package es.rotolearn.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -35,16 +36,27 @@ public class CatalogoRequestHandler implements RequestHandler {
 		//PARA BUSCAR EL USUARIO QUE HEMOS RECIBIDO POR PARAMETROS, si devuelve null no existe si devuelve algo es que existe
 		tx.begin();//Comenzamos la transaccion
 		query.setMaxResults(5);
-		List<es.rotolearn.entities.Curso> results =(List<es.rotolearn.entities.Curso>)(List<?>) query.getResultList();
-
-		
+		List<es.rotolearn.entities.Curso> results =(List<es.rotolearn.entities.Curso>) query.getResultList();
 		em.close();
-
-		ArrayList<es.rotolearn.entities.Curso> cursos = new ArrayList<es.rotolearn.entities.Curso>();
-		for(int i = 0; i < results.size(); i++){
-			cursos.add(results.get(i));
+		Iterator it = results.iterator();
+		
+		es.rotolearn.entities.Curso aux = new es.rotolearn.entities.Curso();
+		ArrayList<es.rotolearn.entities.Curso> array = new ArrayList<es.rotolearn.entities.Curso>();
+		
+		while(it.hasNext()){
+			aux = (es.rotolearn.entities.Curso)it.next();
+			array.add(aux);
+			
 		}
-		request.setAttribute("listaCursos", cursos);
+		
+		
+		
+
+		//ArrayList<es.rotolearn.entities.Curso> cursos = new ArrayList<es.rotolearn.entities.Curso>();
+		/*for(int i = 0; i < array.length; i++){
+			cursos.add(results.get(i));
+		}*/
+		request.setAttribute("listaCursos", array);
 		// 5 Close the manager
 		return ruta;
 	}

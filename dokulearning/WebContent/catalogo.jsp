@@ -123,7 +123,7 @@
 	                    <li class="portfolio-item col-md-2">
 	                        <div class="itemCatalogo">
 	                            <img src="images/portfolio/thumb/item3.jpg" alt="">
-	                            <h5><%=aux.get(i).getId().getTitulo() %></h5>
+	                            <h5><%=aux.get(i).getTitulo() %></h5>
 	                            <h1 class="precios"><span class="precio"><%=aux.get(i).getPrecio() %>&euro;</span><span class="precioAntiguo">200$</span></h1>
 	                            <div class="overlay">
 	                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
