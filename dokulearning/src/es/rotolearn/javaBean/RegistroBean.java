@@ -1,17 +1,6 @@
 package es.rotolearn.javaBean;
 
 public class RegistroBean{
-	
-private RegistroBean user[];
-	
-	
-	public RegistroBean[] getUser() {
-		return user;
-	}
-
-	public void setUser(RegistroBean[] user) {
-		this.user = user;
-	}
 
 	private String tipo;
 	private String nickName;
@@ -19,7 +8,6 @@ private RegistroBean user[];
 	private String apellido1;
 	private String apellido2;
 	private String email;
-	private String pass;
 	private String nacimiento;
 	private String direccion;
 	private String descripcion;
@@ -29,7 +17,7 @@ private RegistroBean user[];
 	public RegistroBean(){}
 	
 	public RegistroBean(String tipo, String nickName, String nombre,
-			String apellido1, String apellido2, String email, String pass,
+			String apellido1, String apellido2, String email, 
 			String nacimiento, String direccion, String descripcion,
 			String intereses, String telefono) {
 		super();
@@ -39,7 +27,6 @@ private RegistroBean user[];
 		this.apellido1 = apellido1;
 		this.apellido2 = apellido2;
 		this.email = email;
-		this.pass = pass;
 		this.nacimiento = nacimiento;
 		this.direccion = direccion;
 		this.descripcion = descripcion;
@@ -87,14 +74,7 @@ private RegistroBean user[];
 		email = aux;
 	}
 	 
-	public String getPass(){
-		return pass;
-	}
-	 
-	public void setPass(String aux){
-		pass = aux;
-	}
-	 
+
 	public String getNacimiento(){
 		return nacimiento;
 	}

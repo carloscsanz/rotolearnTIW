@@ -119,10 +119,6 @@
 						<label for="pass"><span class="red">*</span>Contrase&ntilde;a</label>
 						<input type="password" class="form-control" name="pass" placeholder="Introduce tu contrase&ntilde;a" required>
 					</div>
-					<div class="form-group">
-						<label for="pass2"><span class="red">*</span>Confirmar contrase&ntilde;a</label>
-						<input type="password" class="form-control" name="pass2" placeholder="Confirma tu contrase&ntilde;a" required>
-					</div>
 				</div>
 				<div class="col-md-5" >
 					<h2>Informaci&oacute;n complementaria</h2>
@@ -150,8 +146,7 @@
 					</div>
 					<div class="form-group">
 						<label  for="foto">Imagen de perfil</label>
-						<input type="file" id="exampleInputFile">
-						</dive>
+						<input type="text" class="form-control" name="exampleInputFile" id="exampleInputFile" placeholder="Introduce la url en la que se encuentra la imagen" >
 						<p class="help-block">El formato debe ser jpg</p>
 					</div>
 					<div class="form-group">        
