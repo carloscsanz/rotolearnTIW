@@ -101,7 +101,7 @@
 					</div>
 					<div class="form-group">	
 					    <label for="moreinfo">Descripci&oacute;n</label>
-						<textarea class="form-control" rows="4" placeholder="Describe en que consiste el curso" required></textarea>
+						<textarea name="descripcion" class="form-control" rows="4" placeholder="Describe en que consiste el curso" required></textarea>
 					</div>
 					<div class="form-group">
 					    <label  for="nivel">Dificultad</label>
@@ -122,7 +122,7 @@
 						     
 					<div class="form-group">
 						<label  for="foto">Imagen del curso</label>
-						<input type="file" name="exampleInputFile">
+						<input type="file" name="imagen">
 						</dive>
 						<p class="help-block">El formato debe ser jpg</p>
 					</div>

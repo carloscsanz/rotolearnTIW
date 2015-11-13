@@ -36,8 +36,7 @@ public class CatalogoRequestHandler implements RequestHandler {
 		tx.begin();//Comenzamos la transaccion
 		query.setMaxResults(5);
 		List<es.rotolearn.entities.Curso> results =(List<es.rotolearn.entities.Curso>)(List<?>) query.getResultList();
-		System.out.println("MIRAMACHO"+results.get(0).getId().getTitulo());
-		System.out.println("MIRAMACHO"+results.get(0).getId().getProfesor());
+
 		
 		em.close();
 

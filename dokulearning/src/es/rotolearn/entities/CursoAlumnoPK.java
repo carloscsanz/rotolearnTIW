@@ -12,9 +12,6 @@ public class CursoAlumnoPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="Profesor", insertable=false, updatable=false)
-	private String profesor;
-
 	@Column(name="Titulo", insertable=false, updatable=false)
 	private String titulo;
 
@@ -22,12 +19,6 @@ public class CursoAlumnoPK implements Serializable {
 	private String nickname;
 
 	public CursoAlumnoPK() {
-	}
-	public String getProfesor() {
-		return this.profesor;
-	}
-	public void setProfesor(String profesor) {
-		this.profesor = profesor;
 	}
 	public String getTitulo() {
 		return this.titulo;
@@ -51,15 +42,13 @@ public class CursoAlumnoPK implements Serializable {
 		}
 		CursoAlumnoPK castOther = (CursoAlumnoPK)other;
 		return 
-			this.profesor.equals(castOther.profesor)
-			&& this.titulo.equals(castOther.titulo)
+			this.titulo.equals(castOther.titulo)
 			&& this.nickname.equals(castOther.nickname);
 	}
 
 	public int hashCode() {
 		final int prime = 31;
 		int hash = 17;
-		hash = hash * prime + this.profesor.hashCode();
 		hash = hash * prime + this.titulo.hashCode();
 		hash = hash * prime + this.nickname.hashCode();
 		

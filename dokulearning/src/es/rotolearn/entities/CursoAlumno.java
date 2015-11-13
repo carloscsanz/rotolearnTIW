@@ -10,10 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="CURSO_ALUMNO")
-@NamedQueries({
-@NamedQuery(name="CursoAlumno.findAll", query="SELECT c FROM CursoAlumno c"),
-@NamedQuery(name="findDeseos", query="SELECT c FROM CursoAlumno c WHERE c.estado LIKE :estado AND c.usuario.nickname LIKE :usuario")
-})
+@NamedQuery(name="CursoAlumno.findAll", query="SELECT c FROM CursoAlumno c")
 public class CursoAlumno implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -25,10 +22,7 @@ public class CursoAlumno implements Serializable {
 
 	//bi-directional many-to-one association to Curso
 	@ManyToOne
-	@JoinColumns({
-		@JoinColumn(name="Profesor", referencedColumnName="Titulo"), //Esto esta mal, tendria que ser profesor referenced profesor. 
-		@JoinColumn(name="Titulo", referencedColumnName="Profesor")
-		})
+	@JoinColumn(name="Titulo")
 	private Curso curso;
 
 	//bi-directional many-to-one association to Usuario

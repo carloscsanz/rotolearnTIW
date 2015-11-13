@@ -60,11 +60,7 @@ public class Usuario implements Serializable {
 
 	//bi-directional many-to-one association to Curso
 	@OneToMany(mappedBy="usuario")
-	private List<Curso> cursos1;
-
-	//bi-directional many-to-many association to Curso
-	@ManyToMany(mappedBy="usuarios")
-	private List<Curso> cursos2;
+	private List<Curso> cursos;
 
 	//bi-directional many-to-one association to CursoAlumno
 	@OneToMany(mappedBy="usuario")
@@ -177,34 +173,26 @@ public class Usuario implements Serializable {
 		this.tipo = tipo;
 	}
 
-	public List<Curso> getCursos1() {
-		return this.cursos1;
+	public List<Curso> getCursos() {
+		return this.cursos;
 	}
 
-	public void setCursos1(List<Curso> cursos1) {
-		this.cursos1 = cursos1;
+	public void setCursos(List<Curso> cursos) {
+		this.cursos = cursos;
 	}
 
-	public Curso addCursos1(Curso cursos1) {
-		getCursos1().add(cursos1);
-		cursos1.setUsuario(this);
+	public Curso addCurso(Curso curso) {
+		getCursos().add(curso);
+		curso.setUsuario(this);
 
-		return cursos1;
+		return curso;
 	}
 
-	public Curso removeCursos1(Curso cursos1) {
-		getCursos1().remove(cursos1);
-		cursos1.setUsuario(null);
+	public Curso removeCurso(Curso curso) {
+		getCursos().remove(curso);
+		curso.setUsuario(null);
 
-		return cursos1;
-	}
-
-	public List<Curso> getCursos2() {
-		return this.cursos2;
-	}
-
-	public void setCursos2(List<Curso> cursos2) {
-		this.cursos2 = cursos2;
+		return curso;
 	}
 
 	public List<CursoAlumno> getCursoAlumnos() {
