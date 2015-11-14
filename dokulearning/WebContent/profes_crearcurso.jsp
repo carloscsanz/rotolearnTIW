@@ -92,7 +92,7 @@
 		        <div class="col-md-4 col-md-offset-2">
 		        	<h2>Creaci&oacute;n de curso</h2>
 					<div class="form-group">
-					    <label  for="titulo">T&iacute;tulo</label>
+					    <label  for="titulo"><span class="red">*</span>T&iacute;tulo</label>
 						<input type="text" class="form-control" name="titulo" placeholder="Introduce el t&iacute;tulo que tendr&aacute; tu curso" required>
 					</div>
 					<div class="form-group">
@@ -100,11 +100,11 @@
 						<input type="text" class="form-control" name="categoria" placeholder="Introduce la categor&iacute;a de tu curso" required>
 					</div>
 					<div class="form-group">	
-					    <label for="moreinfo">Descripci&oacute;n</label>
+					    <label for="moreinfo"><span class="red">*</span>Descripci&oacute;n</label>
 						<textarea name="descripcion" class="form-control" rows="4" placeholder="Describe en que consiste el curso" required></textarea>
 					</div>
 					<div class="form-group">
-					    <label  for="nivel">Dificultad</label>
+					    <label  for="nivel"><span class="red">*</span>Dificultad</label>
 					    <select name="dificultad" class="form-control">
 						    <option value="basico">B&aacute;sico</option>
 						    <option value="intermedio">Intermedio</option>
@@ -112,17 +112,17 @@
 						</select>
 				    </div>		 
 					<div class="form-group">
-						<label  for="horas">Horas de dedicaci&oacute;n</label>
+						<label  for="horas"><span class="red">*</span>Horas de dedicaci&oacute;n</label>
 						<input type="number" class="form-control" name="horas" min="1" max="240" placeholder="Introduce las horas de dedicaci&oacute;n que requiere el curso" required>
 					</div>	 
 					<div class="form-group">
-					    <label  for="precio">Precio matricula</label>
+					    <label  for="precio"><span class="red">*</span>Precio matricula</label>
 						<input type="number" class="form-control" name="precio" min="0" max="6000" placeholder="Introduce el precio del curso" required>
 					</div>
 						     
 					<div class="form-group">
-						<label  for="foto">Imagen del curso</label>
-						<input type="file" name="imagen">
+						<label  for="foto"><span class="red">*</span>Imagen del curso</label>
+						<input type="text" class="form-control" name="imagen" placeholder="Introduce la url de la imagen del curso" required>
 						</dive>
 						<p class="help-block">El formato debe ser jpg</p>
 					</div>
