@@ -96,9 +96,24 @@
 						<input type="text" class="form-control" name="titulo" placeholder="Introduce el t&iacute;tulo que tendr&aacute; tu curso" required>
 					</div>
 					<div class="form-group">
+					    <label  for="nivel"><span class="red">*</span>Categor&iacute;a</label>
+					    <select name="categoria" class="form-control">
+						    <option value="Programacion">Programaci&oacute;n</option>
+						    <option value="IT y Software">IT y Software</option>
+						    <option value="Negocios">Negocios</option>
+						    <option value="Diseño">Dise&ntilde;o</option>
+						    <option value="Fotografia">Fotograf&iacute;a</option>
+						    <option value="Salud y Fitness">Salud y Fitness</option>
+						    <option value="Lifestyle">Lifestyle</option>
+						    <option value="Musica">M&uacute;sica</option>
+						    <option value="Idioma">Idioma</option>
+						    <option value="Academico">Acad&eacute;mico</option>
+						</select>
+				    </div>	
+					<!--<div class="form-group">
 						<label  for="categoria"><span class="red">*</span>Categor&iacute;a</label>
 						<input type="text" class="form-control" name="categoria" placeholder="Introduce la categor&iacute;a de tu curso" required>
-					</div>
+					</div>-->
 					<div class="form-group">	
 					    <label for="moreinfo"><span class="red">*</span>Descripci&oacute;n</label>
 						<textarea name="descripcion" class="form-control" rows="4" placeholder="Describe en que consiste el curso" required></textarea>
@@ -121,7 +136,7 @@
 					</div>
 						     
 					<div class="form-group">
-						<label  for="foto"><span class="red">*</span>Imagen del curso</label>
+						<label  for="foto">Imagen del curso</label>
 						<input type="text" class="form-control" name="imagen" placeholder="Introduce la url de la imagen del curso" required>
 						</dive>
 						<p class="help-block">El formato debe ser jpg</p>

@@ -8,10 +8,6 @@ import java.sql.Statement;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,6 +27,7 @@ public class CursoRequestHandler implements RequestHandler {
 		
 		/*Insercion a BBDD con DataSource*/
 		System.out.println("Vamos a probar a hacer la insercion por DATASOURCE");
+		
 		InitialContext miInitialContext;
 		DataSource miDS;
 		try{
@@ -42,14 +39,13 @@ public class CursoRequestHandler implements RequestHandler {
 
 			Statement myStatement = conexion.createStatement();
 			//FALTA HACER QUE EL PROFESOR QUE CREA EL CURSO SEA EL DEL BEAN
-			myStatement.executeUpdate("INSERT INTO CURSO VALUES ('"+request.getParameter("titulo")+"','"+"profe"+"','"+request.getParameter("precio")+"','"+request.getParameter("horas")+"','"+request.getParameter("paypal")+"','"+request.getParameter("dificultad")+"','"+request.getParameter("descripcion")+"','"+"NO"+"','"+"NO"+"','"+request.getParameter("categoria")+"', '"+request.getParameter("imagen")+"')");
+			myStatement.executeUpdate("INSERT INTO CURSO VALUES ('"+request.getParameter("titulo")+"','"+user.getNickName()+"','"+request.getParameter("precio")+"','"+request.getParameter("horas")+"','"+request.getParameter("paypal")+"','"+request.getParameter("dificultad")+"','"+request.getParameter("descripcion")+"','"+"NO"+"','"+"NO"+"','"+request.getParameter("categoria")+"', '"+request.getParameter("imagen")+"')");
 
 			myStatement.close();
 			conexion.close();
 			request.setAttribute("curso", "si");
 			
 		}catch (NamingException e) {
-			// TODO Bloque catch generado automaticamente
 			e.printStackTrace();
 			request.setAttribute("curso", "no");
 
