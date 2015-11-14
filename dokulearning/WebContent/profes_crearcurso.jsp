@@ -68,28 +68,28 @@
 	    <!--FIN CABECERA-->
 	    
 	    <!--CUERPO-->
-	    <div class="container-fluid">                
-                <%
-					if(request.getAttribute("curso") != null)
-					if(request.getAttribute("curso").equals("si")){
-				%>
+	    <div class="container-fluid">
+        	<div class="row" id="cuerpo">
+				<form role="form" method="post" action="curso.form">
+		        <div class="col-md-4 col-md-offset-2">
+		        	<%
+						if(request.getAttribute("curso") != null)
+						if(request.getAttribute("curso").equals("si")){
+					%>
 						<div class="alert alert-success" style="margin-bottom:0px">
 							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 						    <strong>Curso creado.</strong> Tu curso se ha creado correctamente.
 						</div>
-				<%
-					}else{
-				%>
+					<%
+						}else{
+					%>
 						<div class="alert alert-danger" style="margin-top:10px" style="margin-bottom:0px">
 							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-						    <strong>Error al crear curso.</strong> Tu curso no se ha podido crear.
+						    <strong>Error al crear curso.</strong> El Titulo del curso ya existe.
 						</div>
-				<%
-					}
-				%>
-        <div class="row" id="cuerpo">
-				<form role="form" method="post" action="curso.form">
-		        <div class="col-md-4 col-md-offset-2">
+					<%
+						}
+					%>
 		        	<h2>Creaci&oacute;n de curso</h2>
 					<div class="form-group">
 					    <label  for="titulo"><span class="red">*</span>T&iacute;tulo</label>
