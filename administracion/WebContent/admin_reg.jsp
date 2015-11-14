@@ -130,10 +130,6 @@
 						<label for="pass"><span class="red">*</span>Contrase&ntilde;a</label>
 						<input type="password" class="form-control" name="pass" placeholder="Introduce tu contrase&ntilde;a" required>
 					</div>
-					<div class="form-group">
-						<label for="pass2"><span class="red">*</span>Confirmar contrase&ntilde;a</label>
-						<input type="password" class="form-control" name="pass2" placeholder="Confirma tu contrase&ntilde;a" required>
-					</div>
 				</div>
 				<div class="col-md-5" >
 							     
@@ -174,7 +170,7 @@
 	    	</div>
 	    	<div class="row">
 	    		<div class="col-lg-5 col-md-offset-1">
-	   				<form>
+	   				<form role="form" method="POST" action="reg_admin.form">
 	   					<h2>Registro de un usuario Administrador</h2>
 						<div class="form-group">
 							<label  for="nick"><span class="red">*</span>Nickname</label>

@@ -23,6 +23,7 @@ public class ControladorServlet extends HttpServlet {
 		// This will read mapping definitions and populate handlerHash
 		handlerHash.put("/login.form", new es.rotolearn.servlet.LoginRequestHandler());
 		handlerHash.put("/reg_user.form", new es.rotolearn.servlet.RegistroRequestHandler());
+		handlerHash.put("/reg_admin.form", new es.rotolearn.servlet.RegistroAdminRequestHandler());
 		handlerHash.put("/logout.form", new es.rotolearn.servlet.LogoutRequestHandler());
 	}
 	

@@ -31,9 +31,7 @@ public class RegistroRequestHandler implements RequestHandler {
 		System.out.println("Creamos el usuario");
 		
 		//Creamos el usuario a buscar en la BBDD
-		Usuario newUsuario = new Usuario();
 		String nick = request.getParameter("nick");		
-		newUsuario.setNickname(nick);
 		
 		/*Insercion a BBDD con DataSource*/
 		System.out.println("Vamos a probar a hacer la insercion por DATASOURCE");
@@ -66,23 +64,7 @@ public class RegistroRequestHandler implements RequestHandler {
 			myStatement.close();
 			conexion.close();
 			
-			//.out.println("El getparameter " +  request.getParameter("nick") + "fin nombre");
-			//System.out.println("voy a meter a este usuario " + newUsuario.getNickname());
-			newUsuario.setNombre(request.getParameter("nombre"));
-			newUsuario.setTipo(request.getParameter("optradio"));
-			newUsuario.setApellido1(request.getParameter("apellido1"));
-			newUsuario.setApellido2(request.getParameter("apellido2"));
-			newUsuario.setEmail(request.getParameter("email"));
-			newUsuario.setPass(String.valueOf(request.getParameter("pass").hashCode()));
-			//String.valueOf(request.getParameter("Password").hashCode());
-			newUsuario.setFecha_nac(request.getParameter("date")); 
-			newUsuario.setDireccion(request.getParameter("direccion"));
-			newUsuario.setDescripcion(request.getParameter("descripcion"));
-			newUsuario.setIntereses(request.getParameter("intereses"));
-			newUsuario.setTelefono(request.getParameter("tlf"));
-			newUsuario.setImagen(request.getParameter("exampleInputFile"));
-		//	}
-			
+
 	
 			
 		}catch (NamingException e) {

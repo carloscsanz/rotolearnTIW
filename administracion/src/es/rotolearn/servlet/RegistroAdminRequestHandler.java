@@ -1,26 +1,29 @@
 package es.rotolearn.servlet;
 
 import java.io.IOException;
+import java.io.IOException;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLWarning;
 import java.sql.Statement;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import es.rotolearn.entities.Usuario;
 
-public class RegistroRequestHandler implements RequestHandler {
 
-
-
+public class RegistroAdminRequestHandler implements RequestHandler {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String 	ruta = "admin_reg.jsp";
@@ -50,11 +53,9 @@ public class RegistroRequestHandler implements RequestHandler {
 				// Modificar el html para quitar lo de la segunda contraseña y cambiar lo de la imagen por  un textbox
 				//
 				
-			myStatement.executeUpdate("INSERT INTO USUARIO VALUES ('"+request.getParameter("optradio")+"','"+nick+"','"+
-			request.getParameter("nombre")+"','"+request.getParameter("apellido1")+"','"+request.getParameter("apellido2")+
-			"','"+String.valueOf(request.getParameter("pass").hashCode())+"','"+request.getParameter("date")+"','"+request.getParameter("exampleInputFile")
-			+"','"+request.getParameter("email")+"','"+request.getParameter("tlf")+"', '"+
-			request.getParameter("direccion")+"', '"+request.getParameter("descripcion")+"', '"+request.getParameter("intereses")+"')");
+			myStatement.executeUpdate("INSERT INTO ADMIN VALUES ('"+request.getParameter("nick")+
+					"', '"+String.valueOf(request.getParameter("pass").hashCode())+
+					"', '"+'2'+"')");
 			
 			
 			myStatement.close();
@@ -146,6 +147,4 @@ public class RegistroRequestHandler implements RequestHandler {
 	*/
 		return ruta;
 	}
-
-
 }
