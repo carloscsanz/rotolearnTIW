@@ -1,5 +1,5 @@
 <jsp:useBean id="perfil" class="es.rotolearn.javaBean.RegistroBean" scope="session"/>
-
+<%@ page import="es.rotolearn.tablas.Curso" %>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -68,20 +68,24 @@
     <!--FIN CABECERA-->
     
     <!--CUERPO-->
+    <%
+    	Curso aux = (Curso) request.getAttribute("curso");
+    %>
+    
 	<div id="cuerpo" class="container-fluid">
 		<div class="row" id="cabeza" style="background-image:url('http://3.bp.blogspot.com/-YUeJUst1n6A/VDIxmSHjceI/AAAAAAAAR0I/XLKacnkg6ag/s1600/portada.jpg')">
 			<div class="col-md-3 col-md-offset-1" >
 				<ul class="list-group">
 					<li class="list-group-item titulo">
-						<span class="info">Curso de iniciaci&oacute;n al teclado</span>
+						<span class="info"><%=aux.getTitulo() %></span>
 					</li>
 					<li class="list-group-item">
 						<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-						<span class="info">Numero de horas:</span>2
+						<span class="info">Numero de horas:</span><%=aux.getHoras() %>
 					</li>
 					<li class="list-group-item">
 						<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>
-						<span class="info">Precio:</span>5 &euro;
+						<span class="info">Precio:</span><%=aux.getPrecio() %> &euro;
 					</li>
 					<li class="list-group-item">
 						<span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
@@ -89,11 +93,11 @@
 					</li>
 					<li class="list-group-item">
 						<span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
-						<span class="info">Dificultad:</span> Muy dificil
+						<span class="info">Dificultad: </span><%=aux.getDificultad() %>
 					</li>
 					<li class="list-group-item">
 						<span class="glyphicon glyphicon-education" aria-hidden="true"></span>
-						<span class="info">Profesor/es:</span>Rub&eacute;n G&aacute;rcia S&aacute;nchez
+						<span class="info">Profesor/es:</span><%=aux.getUsuario() %>
 						<br>
 					</li>
 					<li class="list-group-item">
@@ -105,7 +109,7 @@
 		<div class="row" id="descrip">
 			<div class="col-md-10 col-md-offset-1" >
 				<h2>Descripci&oacute;n del curso</h2>
-				<p >En este curso aprenderar a manejar el teclado a nivel experto.</p>
+				<p ><%=aux.getDescripcion() %></p>
 				<p class="collapse" id="viewdetails">Te convertir&aacute;s en el mejor gamer de la historia por solo 5 &euro;.</p>
 				<p><a class="btn" data-toggle="collapse" data-target="#viewdetails">Leer m&aacute;s &raquo;</a></p>
 			</div>

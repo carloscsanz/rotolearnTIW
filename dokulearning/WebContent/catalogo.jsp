@@ -119,6 +119,7 @@
                 <ul class="portfolio-items">
                 	<%
                 		ArrayList<Curso> dest = (ArrayList<Curso>) request.getAttribute("destacados");
+                		String h;
                 		for(int i=0; i<dest.size();i++){
                 	%>
                     <li class="portfolio-item col-md-2">
@@ -128,7 +129,8 @@
                             <h1 class="precios"><span class="precio"><%=dest.get(i).getPrecio() %>&euro;</span><span class="precioAntiguo">200$</span></h1>
                             <div class="overlay">
                                 <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
-                                <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
+                                <% h=dest.get(i).getTitulo();%>
+                                <a class="preview glyphicon glyphicon-eye-open" href="showCurso.form?titulo=<%=h %>" rel="prettyPhoto"><br><span>Ver</span></a>
                             </div>           
                         </div>           
                     </li>
@@ -144,17 +146,26 @@
             		<h1>Cursos recomendados<button type="submit" class="verMas btn btn-default">Ver m&aacute;s</button></h1>
                 </form>
                 <ul class="portfolio-items">
+                	<%
+                		ArrayList<Curso> rec = (ArrayList<Curso>) request.getAttribute("recomendados");
+                		String a;
+                		for(int i=0; i<rec.size();i++){
+                	%>
                     <li class="portfolio-item col-md-2">
                         <div class="itemCatalogo">
                             <img src="images/portfolio/thumb/item3.jpg" alt="">
-                            <h5>TITULO LOKO</h5>
-                            <h1 class="precios"><span class="precio">2000&euro;</span><span class="precioAntiguo">200$</span></h1>
+                            <h5><%=rec.get(i).getTitulo() %></h5>
+                            <h1 class="precios"><span class="precio"><%=rec.get(i).getPrecio() %>&euro;</span><span class="precioAntiguo">200$</span></h1>
                             <div class="overlay">
                                 <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
-                                <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
+                                <% a=rec.get(i).getTitulo();%>
+                                <a class="preview glyphicon glyphicon-eye-open" href="showCurso.form?titulo=<%=a %>" rel="prettyPhoto"><br><span>Ver</span></a>
                             </div>           
                         </div>           
                     </li>
+                    <%
+                    	}
+                    %>
                 </ul>
             </div>
         </div>

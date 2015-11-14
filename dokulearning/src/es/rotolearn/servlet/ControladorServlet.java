@@ -29,6 +29,7 @@ public class ControladorServlet extends HttpServlet {
 		handlerHash.put("/curso.form", new es.rotolearn.servlet.CursoRequestHandler());
 		handlerHash.put("/perfil.form", new es.rotolearn.servlet.EditPerfilRequestHandler());
 		handlerHash.put("/catalogo.form", new es.rotolearn.servlet.CatalogoRequestHandler());
+		handlerHash.put("/showCurso.form", new es.rotolearn.servlet.ShowCursoRequestHandler());
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -29,7 +29,7 @@ public class CatalogoRequestHandler implements RequestHandler {
 		InitialContext miInitialContext;
 		DataSource miDS;
 		ArrayList<Curso> des = new ArrayList<Curso>();
-		//ArrayList<Curso> rec = new ArrayList<Curso>();
+		ArrayList<Curso> rec = new ArrayList<Curso>();
 		
 		try{
 			miInitialContext = new InitialContext();
@@ -41,7 +41,6 @@ public class CatalogoRequestHandler implements RequestHandler {
 			Statement myStatement = conexion.createStatement();
 			
 			ResultSet destacados = myStatement.executeQuery("SELECT * FROM CURSO ORDER BY Titulo LIMIT 5");//Hay que cambiar la query
-			//ResultSet recomendados = myStatement.executeQuery("SELECT * FROM CURSO");
 
 			if(destacados!=null){
 				while(destacados.next()){
@@ -62,35 +61,11 @@ public class CatalogoRequestHandler implements RequestHandler {
 			}
 			System.out.println("SALTA EXCEPCION 1");
 			
-			/**/
-			/*while(recomendados.next()){
-				Curso aux = new Curso();
-				aux.setTitulo(recomendados.getString("Titulo"));
-				aux.setUsuario((recomendados.getString("Profesor")));
-				aux.setPrecio(recomendados.getString("Precio"));
-				aux.setHoras(recomendados.getString("Horas"));
-				aux.setEmail_paypal(recomendados.getString("Email_paypal"));
-				aux.setDificultad(recomendados.getString("Dificultad"));
-				aux.setDescripcion(recomendados.getString("Descripcion"));
-				aux.setValidado(recomendados.getString("Validado"));
-				aux.setDestacado(recomendados.getString("Destacado"));
-				aux.setCategoria(recomendados.getString("Categoria"));
-				aux.setImagen(recomendados.getString("Imagen"));
-				rec.add(aux);
-			}*/
-			
 			destacados.close();
-			System.out.println("SALTA EXCEPCION 2");
 			myStatement.close();
-			System.out.println("SALTA EXCEPCION 3");
 			conexion.close();
-			System.out.println("SALTA EXCEPCION 4");
-			request.setAttribute("destacados", des);
-			//request.setAttribute("recomendados", rec);
-			
 			
 		}catch (NamingException e) {
-			// TODO Bloque catch generado automaticamente
 			System.out.println("SALTA EXCEPCION NAMING");
 			e.printStackTrace();
 
@@ -111,6 +86,65 @@ public class CatalogoRequestHandler implements RequestHandler {
 				sqlException = sqlException.getNextException();
 			}
 		}
+		
+		try{
+			miInitialContext = new InitialContext();
+
+			miDS = (DataSource) miInitialContext.lookup("RotolearnJNDI");
+
+			Connection conexion = miDS.getConnection();
+
+			Statement myStatement = conexion.createStatement();
+			
+			ResultSet recomendados = myStatement.executeQuery("SELECT * FROM CURSO");
+
+			if(recomendados!=null){
+				while(recomendados.next()){
+					Curso aux = new Curso();
+					aux.setTitulo(recomendados.getString("Titulo"));
+					aux.setUsuario((recomendados.getString("Profesor")));
+					aux.setPrecio(recomendados.getString("Precio"));
+					aux.setHoras(recomendados.getString("Horas"));
+					aux.setEmail_paypal(recomendados.getString("Email_paypal"));
+					aux.setDificultad(recomendados.getString("Dificultad"));
+					aux.setDescripcion(recomendados.getString("Descripcion"));
+					aux.setValidado(recomendados.getString("Validado"));
+					aux.setDestacado(recomendados.getString("Destacado"));
+					aux.setCategoria(recomendados.getString("Categoria"));
+					aux.setImagen(recomendados.getString("Imagen"));
+					rec.add(aux);
+				}
+			}
+			System.out.println("SALTA EXCEPCION 1");
+			
+			recomendados.close();
+			myStatement.close();
+			conexion.close();
+			
+		}catch (NamingException e) {
+			System.out.println("SALTA EXCEPCION NAMING");
+			e.printStackTrace();
+
+		} catch (SQLWarning sqlWarning) {
+			while (sqlWarning != null) {
+				System.out.println("SALTA EXCEPCION SQLWARNING");
+				System.out.println("Error: " + sqlWarning.getErrorCode());
+				System.out.println("Descripcion: " + sqlWarning.getMessage());
+				System.out.println("SQLstate: " + sqlWarning.getSQLState());
+				sqlWarning = sqlWarning.getNextWarning();
+			}
+		} catch (SQLException sqlException) {
+			while (sqlException != null) {
+				System.out.println("SALTA EXCEPCION SQLEXCEPTION");
+				System.out.println("Error: " + sqlException.getErrorCode());
+				System.out.println("Descripcion: " + sqlException.getMessage());
+				System.out.println("SQLstate: " + sqlException.getSQLState());
+				sqlException = sqlException.getNextException();
+			}
+		}
+		
+		request.setAttribute("destacados", des);
+		request.setAttribute("recomendados", rec);
 		
 		return ruta;
 	}
