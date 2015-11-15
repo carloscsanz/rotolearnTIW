@@ -21,18 +21,12 @@ public class ValidarRequestHandler implements RequestHandler {
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session;
-		System.out.println("Handler login received the request");
+		System.out.println("Handler validar received the request");
 		//HAY QUE AÑADIR/MODIFICAR PARA METERLE LA BBDD
-		String ruta = "admin_index.jsp";
-		String nick = request.getParameter("nick");
-		String pass = String.valueOf(request.getParameter("pass")); //hay que cambiar la contraseña de la base de datos para que se pueda entrar....
-		System.out.println("Nick introducido: "+nick);
-		System.out.println("Pass introducida: "+pass);
-		
+		String ruta = "admin_altacursos.form";
+		String validar = request.getParameter("validar");
 				
 				/*Insercion a BBDD con DataSource*/
-				System.out.println("Vamos a probar a hacer la modificacion por DATASOURCE");
 				InitialContext miInitialContext;
 				DataSource miDS;
 				try{
@@ -43,66 +37,45 @@ public class ValidarRequestHandler implements RequestHandler {
 					Connection conexion = miDS.getConnection();
 
 					Statement myStatement = conexion.createStatement();
-					System.out.println("Antes de la query");
-					ResultSet rs = myStatement.executeQuery("UPDATE CURSO SET Destacado='SI' WHERE Titulo='Curso de Prueba'");
-					System.out.println("Despues de la query");
+					System.out.println("Antes de la query:    "+validar);
+					int updateOk = myStatement.executeUpdate("UPDATE CURSO SET Validado='SI' WHERE Titulo='"+validar+"'");
+					System.out.println("EL UPDATE SE HA EJECUTADO: "+updateOk);
 					
-						//existe el nick, comparar contraseñas
-						rs.next();// PONER ESTO ANTES DE HACER NADA SOBRE UNA RESULSET
-						System.out.println("ENTRO A COMPARAR CONTRASEÑAS");
-						System.out.println("rs.getstrin " + rs.getString(2) + " pass "+pass);
-						if(rs.getString("Pass").equals(pass)){//las contraseñas coinciden login valido
-							Registrobean regbean = new Registrobean();
-							regbean.setNickName(rs.getString("Nickname"));
-							regbean.setPass(rs.getString("Pass"));
-							regbean.setPrioridad(rs.getInt("Prioridad"));
-
-							//System.out.println("Pass correcta, puede entrar");
-							//System.out.println("Paso comparaciond de pass ");
-							session = ((HttpServletRequest) request).getSession();
-							session.setAttribute("logueado", "true");
-							session.setAttribute("usuario",nick);
-							session.setAttribute("perfil",regbean);						
-							myStatement.close();
-							conexion.close();
-							
-						}else{ 			//FALLO EN LA PASS			
-								request.setAttribute("error", "pass");
-								ruta = "admin_login.jsp";
-							
-							 }				
-			
+					//existe el nick, comparar contraseñas
+					myStatement.close();
+					conexion.close();				
 						//fin else
 				}//fin try
 				catch (NamingException e) {
 					// TODO Bloque catch generado automaticamente
 					e.printStackTrace();
-					request.setAttribute("error", "true");
-					ruta = "admin_login.jsp";
+					ruta = "admin_altacursos.jsp";
 
 				} catch (SQLWarning sqlWarning) {
 					while (sqlWarning != null) {
+						System.out.println("SQL WARNINNNNNNNNNNNNNNNNNNNNNNNNNNNG");
 						System.out.println("Error: " + sqlWarning.getErrorCode());
 						System.out.println("Descripcion: " + sqlWarning.getMessage());
 						System.out.println("SQLstate: " + sqlWarning.getSQLState());
 						sqlWarning = sqlWarning.getNextWarning();
 						request.setAttribute("error", "true");
-						ruta = "admin_login.jsp";
+						ruta = "admin_altacursos.jsp";
 					}
 				} catch (SQLException sqlException) {
 					while (sqlException != null) {
+
+						System.out.println("SQL ERRORRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR");
 						System.out.println("Error: " + sqlException.getErrorCode());
 						System.out.println("Descripcion: " + sqlException.getMessage());
 						System.out.println("SQLstate: " + sqlException.getSQLState());
 						sqlException = sqlException.getNextException();
-						request.setAttribute("error", "true");
-						ruta = "admin_login.jsp";
+						ruta = "admin_altacursos.jsp";
 					}
 				}
 
 		
 	
-return ruta;
+				return ruta;
 	}
 
 }

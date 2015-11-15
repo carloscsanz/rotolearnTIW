@@ -100,14 +100,11 @@
             
                 <tr>
                 	<td>
-                		<form action="validar.form">
-                    		<input class="btn btn-default btn-xs" type="submit" value="Aceptar">
-                    	</form>
+                		<% h=val.get(i).getTitulo();%>
+                    		<a href="validar.form?validar=<%=h%>" class="btn btn-default btn-xs" type="submit" >Aceptar</a>
                     </td>
                     <td>
-                    	<form action="denegar.form">
-                     		<input class="btn btn-default btn-xs" type="submit" value="Rechazar">
-                    	</form>
+                    		<a href="denegar.form?denegar=<%=h%>" class="btn btn-default btn-xs" type="submit" >Denegar</a>
                     </td> 
                     <td><%=val.get(i).getTitulo() %></td>
                     <td><%=val.get(i).getUsuario() %></td>
