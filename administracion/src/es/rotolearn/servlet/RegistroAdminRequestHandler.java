@@ -18,7 +18,10 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
+
+import es.rotolearn.javabean.Registrobean;
 
 
 public class RegistroAdminRequestHandler implements RequestHandler {
@@ -29,11 +32,17 @@ public class RegistroAdminRequestHandler implements RequestHandler {
 		
 		//Creamos el usuario a buscar en la BBDD
 		String nick = request.getParameter("nick");		
-		
+		HttpSession session = ((HttpServletRequest) request).getSession();
+		Registrobean bean = new Registrobean();
+		bean = (Registrobean) session.getAttribute("perfil");
+		int prior = bean.getPrioridad();
+		int priorParaElNuevo = prior + 1;
 		/*Insercion a BBDD con DataSource*/
 		System.out.println("Vamos a probar a hacer la insercion por DATASOURCE");
 		InitialContext miInitialContext;
 		DataSource miDS;
+		
+		
 		try{
 			miInitialContext = new InitialContext();
 
@@ -43,17 +52,10 @@ public class RegistroAdminRequestHandler implements RequestHandler {
 
 			Statement myStatement = conexion.createStatement();
 		
-			//ResultSet rs = myStatement.executeQuery("SELECT * FROM USUARIO WHERE Nickname='"+nick+"'");
-			
-
-		//	if(rs.getString("Nickname") == null){ // si no existe el usuario, puedo crearlo
-				//
-				// Modificar el html para quitar lo de la segunda contraseña y cambiar lo de la imagen por  un textbox
-				//
 				
 			myStatement.executeUpdate("INSERT INTO ADMIN VALUES ('"+request.getParameter("nick")+
 					"', '"+String.valueOf(request.getParameter("pass").hashCode())+
-					"', '"+'2'+"')");
+					"', '"+priorParaElNuevo+"')");
 			
 			
 			myStatement.close();

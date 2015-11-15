@@ -30,7 +30,7 @@ public class LoginRequestHandler implements RequestHandler {
 		//HAY QUE AÑADIR/MODIFICAR PARA METERLE LA BBDD
 		String ruta = "admin_index.jsp";
 		String nick = request.getParameter("nick");
-		String pass = String.valueOf(request.getParameter("pass")); //hay que cambiar la contraseña de la base de datos para que se pueda entrar....
+		String pass = String.valueOf(request.getParameter("pass").hashCode()); //hay que cambiar la contraseña de la base de datos para que se pueda entrar....
 		System.out.println("Nick introducido: "+nick);
 		System.out.println("Pass introducida: "+pass);
 		
