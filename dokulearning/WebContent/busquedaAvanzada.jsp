@@ -115,22 +115,22 @@
     <div class="container-fluid">
 	    <div class="row" id="cuerpo">
 	    	<div id="bAvanzada" class="col-md-2">
-                <form  id="FiltroTag" class="busqueda" action="busquedaAvanzada.form">
+                <form  id="FiltroTag" class="busqueda" method="POST" action="busquedaAvanzada.form">
 					    <h3>Palabra clave</h3>
-					    <input class="form-control" id="palabra_clave" type="text" placeholder="Java, android, edici&oacute;n de videos, ...">
+					    <input class="form-control" id="palabra_clave" type="text" placeholder="Java, android, edici&oacute;n de videos, ..." name="palabra">
 					    <h3>Categor&iacute;as </h3>
 					    <div class="col-md-6">
-	      					<label><input type="checkbox" value="Programacion">Programaci&oacute;n</label><br>
-	      					<label><input type="checkbox" value="IT y Software">IT y Software</label><br>
-	      					<label><input type="checkbox" value="Negocios">Negocios</label><br>
-	      					<label><input type="checkbox" value="Diseño"> Dise&ntilde;o</label><br>
+	      					<label><input type="checkbox" name="cat1" value="Programacion"> Programaci&oacute;n</label><br>
+	      					<label><input type="checkbox" name="cat2" value="IT y Software"> IT y Software</label><br>
+	      					<label><input type="checkbox" name="cat3" value="Negocios"> Negocios</label><br>
+	      					<label><input type="checkbox" name="cat4" value="Diseño"> Dise&ntilde;o</label><br>
 	      				</div>
 					    <div class="col-md-6">
-	      					<label><input type="checkbox" value="Fotografia"> Fotograf&iacute;a</label><br>
-	      					<label><input type="checkbox" value="Salud y Fitness">Salud y Fitness</label><br>
-	      					<label><input type="checkbox" value="Lifestyle"> Lifestyle</label><br>
-	      					<label><input type="checkbox" value="Musica"> M&uacute;sica</label><br>
-	      					<label><input type="checkbox" value="Idioma"> Idioma</label><br>
+	      					<label><input type="checkbox" name="cat5" value="Fotografia"> Fotograf&iacute;a</label><br>
+	      					<label><input type="checkbox" name="cat6" value="Salud y Fitness"> Salud y Fitness</label><br>
+	      					<label><input type="checkbox" name="cat7" value="Lifestyle"> Lifestyle</label><br>
+	      					<label><input type="checkbox" name="cat8" value="Musica"> M&uacute;sica</label><br>
+	      					<label><input type="checkbox" name="cat9" value="Idioma"> Idioma</label><br>
 	      				</div>
 					    <button id="palabra_clave_submit" type="submit" class="btn btn-default btn-block">Buscar</button>
                 </form>
@@ -139,8 +139,16 @@
             <div id="cursos" class="col-md-10">
                 <ul class="portfolio-items">
                     <%
-                		ArrayList<Curso> dest = (ArrayList<Curso>) request.getAttribute("destacados");
+                    	System.out.println("MIraMAchoHastaAqui");
+                		ArrayList<Curso> dest = (ArrayList<Curso>) request.getAttribute("buscados");
+                    	System.out.println("MIraMAchoHastaAqui2");
                 		String h;
+                    	System.out.println("MIraMAchoHastaAqui3");
+                    	if(dest.size() == 0){%>
+                    	<li class="noResultados col-md-12">
+                    		<h1>No se han encontrado resultados</h1>
+                    	</li>
+                    <% }else{
                 		for(int i=0; i<dest.size();i++){
                 	%>
 	                    <li class="portfolio-item col-md-2">
@@ -156,6 +164,7 @@
 	                        </div>           
 	                    </li>
                     <%
+                		}
                 		}
                     %>
                     

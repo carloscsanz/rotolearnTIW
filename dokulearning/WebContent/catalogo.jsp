@@ -114,7 +114,7 @@
 	    <div class="row" id="destacados">
             <div class="col-md-12">
            		<form action="catalogo.form" method="post">
-            		<h1>Cursos destacados<button type="submit" class="verMas btn btn-default">Ver m&aacute;s</button></h1>
+            		<h1><span class="glyphicon glyphicon-star"></span>Cursos destacados<button type="submit" class="verMas btn btn-default">Ver m&aacute;s</button></h1>
                 </form>
                 <ul class="portfolio-items">
                 	<%
@@ -144,7 +144,7 @@
 	    <div class="row" id="recomendados">
             <div class="col-md-12">
            		<form action="catalogo.form" method="post">
-            		<h1>Cursos recomendados<button type="submit" class="verMas btn btn-default">Ver m&aacute;s</button></h1>
+            		<h1><span class="glyphicon glyphicon-stats"></span>Cursos recomendados<button type="submit" class="verMas btn btn-default">Ver m&aacute;s</button></h1>
                 </form>
                 <ul class="portfolio-items">
                 	<%
@@ -171,6 +171,7 @@
                 </ul>
             </div>
         </div>
+        <a id="todos" href="busquedaAvanzada.form" class="btn btn-default btn-block"><span class="glyphicon glyphicon-search"></span>B&uacutesqueda avanzada </a>  
     </div>
     <!--PIE DE PAGINA-->
     <footer>
