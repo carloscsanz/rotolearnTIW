@@ -1,4 +1,6 @@
 <jsp:useBean id="perfil" class="es.rotolearn.javaBean.RegistroBean" scope="session"/>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="es.rotolearn.tablas.Curso" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -66,8 +68,8 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                 	<ul class="nav navbar-nav">
                     	<li><a href="index.jsp">Inicio</a></li>
-                        <!--<li><a href="perfil.form">Mi perfil</a></li>-->
-                        <li><a class="activa" href="catalogo.form">Cat&aacute;logo de cursos</a></li>
+                        <!--<li><a href="perfil.jsp">Mi perfil</a></li>-->
+                        <li><a class="activa" href="catalogo.jsp">Cat&aacute;logo de cursos</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         
@@ -84,7 +86,7 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span> <%=session.getAttribute("usuario")%> <img src="./images/perfil/anonimo.jpeg" class="img-circle" alt="Cinque Terre" width="30" height="30"/></a>
                             <ul class="dropdown-menu">
-                                <li><a href="perfil.form"><span class="glyphicon glyphicon-user"></span>Mi perfil</a></li>
+                                <li><a href="perfil.jsp"><span class="glyphicon glyphicon-user"></span>Mi perfil</a></li>
                                 <% if(!perfil.getTipo().equals("alumn")){%>
                                 <li><a href="profes_panel.jsp"><span class="glyphicon glyphicon-th-large"></span>Panel de Control</a></li>
                                 <% }%> 
@@ -113,193 +115,50 @@
     <div class="container-fluid">
 	    <div class="row" id="cuerpo">
 	    	<div id="bAvanzada" class="col-md-2">
-                <form  id="FiltroTag" class="busqueda" action="#">
+                <form  id="FiltroTag" class="busqueda" action="busquedaAvanzada.form">
 					    <h3>Palabra clave</h3>
 					    <input class="form-control" id="palabra_clave" type="text" placeholder="Java, android, edici&oacute;n de videos, ...">
 					    <h3>Categor&iacute;as </h3>
 					    <div class="col-md-6">
-	      					<label><input type="checkbox"> Inform&aacute;tica</label><br>
-	      					<label><input type="checkbox"> Idiomas</label><br>
-	      					<label><input type="checkbox"> Rob&oacute;tica</label><br>
-	      					<label><input type="checkbox"> Manualidades</label><br>
+	      					<label><input type="checkbox" value="Programacion">Programaci&oacute;n</label><br>
+	      					<label><input type="checkbox" value="IT y Software">IT y Software</label><br>
+	      					<label><input type="checkbox" value="Negocios">Negocios</label><br>
+	      					<label><input type="checkbox" value="Diseño"> Dise&ntilde;o</label><br>
 	      				</div>
 					    <div class="col-md-6">
-	      					<label><input type="checkbox"> Inform&aacute;tica</label><br>
-	      					<label><input type="checkbox"> Idiomas</label><br>
-	      					<label><input type="checkbox"> Rob&oacute;tica</label><br>
-	      					<label><input type="checkbox"> Manualidades</label><br>
+	      					<label><input type="checkbox" value="Fotografia"> Fotograf&iacute;a</label><br>
+	      					<label><input type="checkbox" value="Salud y Fitness">Salud y Fitness</label><br>
+	      					<label><input type="checkbox" value="Lifestyle"> Lifestyle</label><br>
+	      					<label><input type="checkbox" value="Musica"> M&uacute;sica</label><br>
+	      					<label><input type="checkbox" value="Idioma"> Idioma</label><br>
 	      				</div>
-					    <button id="palabra_clave_submit" type="submit" class="btn btn-default btn-block">Filtrar</button>
+					    <button id="palabra_clave_submit" type="submit" class="btn btn-default btn-block">Buscar</button>
                 </form>
             </div>
 
             <div id="cursos" class="col-md-10">
                 <ul class="portfolio-items">
-                    <li class="portfolio-item col-md-2">
-                        <div class="itemCatalogo">
-                            <img src="https://tpc.googlesyndication.com/simgad/15583114969609929571" alt="">
-                            <h5>Curso de iniciaci&oacute;n a la inform&aacute;tica</h5>
-                            <h1 class="precios"><span class="precio">75$</span><span class="precioAntiguo">100$</span></h1>
-                            <div class="overlay">
-                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
-                                <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
-                            </div>           
-                        </div>           
-                    </li>
-                    <li class="portfolio-item col-md-2">
-                        <div class="itemCatalogo">
-                            <img src="images/portfolio/thumb/item1.jpg" alt="">
-                            <h5>Las Redes Sociales y los CEO</h5>
-                            <h1 class="precios"><span class="precio">70$</span><span class="precioAntiguo">90$</span></h1>
-                            <div class="overlay">
-                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
-                                <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
-                            </div>           
-                        </div>           
-                    </li>
-                    <li class="portfolio-item col-md-2">
-                        <div class="itemCatalogo">
-                            <img src="images/portfolio/thumb/item2.jpg" alt="">
-                            <h5>Instagram:descubre sus secretos.</h5>
-                            <h1 class="precios"><span class="precio">30$</span><span class="precioAntiguo">100$</span></h1>
-                            <div class="overlay">
-                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
-                                <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
-                            </div>           
-                        </div>           
-                    </li>
-                    <li class="portfolio-item col-md-2">
-                        <div class="itemCatalogo">
-                            <img src="images/portfolio/thumb/item3.jpg" alt="">
-                            <h5>La verdad sobre Twitter: como ser un influencer</h5>
-                            <h1 class="precios"><span class="precio">80$</span><span class="precioAntiguo">200$</span></h1>
-                            <div class="overlay">
-                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
-                                <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
-                            </div>           
-                        </div>           
-                    </li>
-                    <li class="portfolio-item col-md-2">
-                        <div class="itemCatalogo">
-                            <img src="images/portfolio/thumb/item4.jpg" alt="">
-                            <h5>La Historia y la infor&aacute;tica</h5>
-                            <h1 class="precios"><span class="precio">50$</span><span class="precioAntiguo">100$</span></h1>
-                            <div class="overlay">
-                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
-                                <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
-                            </div>           
-                        </div>           
-                    </li>
-                    <li class="portfolio-item col-md-2">
-                        <div class="itemCatalogo">
-                            <img src="images/portfolio/thumb/item5.jpg" alt="">
-                            <h5>La influencia de las guerras en las RRSS</h5>
-                            <h1 class="precios"><span class="precio">10$</span><span class="precioAntiguo">40$</span></h1>
-                            <div class="overlay">
-                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
-                                <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
-                            </div>           
-                        </div>           
-                    </li>
-                    <li class="portfolio-item col-md-2">
-                        <div class="itemCatalogo">
-                            <img src="images/portfolio/thumb/item6.jpg" alt="">
-                            <h5>Arduino for dummies</h5>
-                            <h1 class="precios"><span class="precio">50$</span><span class="precioAntiguo">100$</span></h1>
-                            <div class="overlay">
-                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
-                                <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
-                            </div>           
-                        </div>           
-                    </li>
-                    <li class="portfolio-item col-md-2">
-                        <div class="itemCatalogo">
-                            <img src="images/portfolio/thumb/item7.jpg" alt="">
-                            <h5>Crea tu propio microrobot</h5>
-                            <h1 class="precios"><span class="precio">60$</span><span class="precioAntiguo">100$</span></h1>
-                            <div class="overlay">
-                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
-                                <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
-                            </div>           
-                        </div>           
-                    </li>
-                    <li class="portfolio-item col-md-2">
-                        <div class="itemCatalogo">
-                            <img src="images/portfolio/thumb/item2.jpg" alt="">
-                            <h5>Conviertete en un villano de pel&iacute;cula</h5>
-                            <h1 class="precios"><span class="precio">1000$</span><span class="precioAntiguo">3000$</span></h1>
-                            <div class="overlay">
-                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
-                                <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
-                            </div>           
-                        </div>           
-                    </li>
-                    <li class="portfolio-item col-md-2">
-                        <div class="itemCatalogo">
-                            <img src="images/portfolio/thumb/item7.jpg" alt="">
-                            <h5>Como encontrar m&aacute;s ideas para t&iacute;tulos de cursos</h5>
-                            <h1 class="precios"><span class="precio">50$</span><span class="precioAntiguo">100$</span></h1>
-                            <div class="overlay">
-                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
-                                <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
-                            </div>           
-                        </div>           
-                    </li>
-                    <li class="portfolio-item col-md-2">
-                        <div class="itemCatalogo">
-                            <img src="images/portfolio/thumb/item5.jpg" alt="">
-                            <h5>Por qu&eacute; me he quedado sin ideas</h5>
-                            <h1 class="precios"><span class="precio">50$</span><span class="precioAntiguo">100$</span></h1>
-                            <div class="overlay">
-                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
-                                <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
-                            </div>           
-                        </div>           
-                    </li>
-                    <li class="portfolio-item col-md-2">
-                        <div class="itemCatalogo">
-                            <img src="images/portfolio/thumb/item2.jpg" alt="">
-                            <h5>Ayuda personal para aprobar pr&aacute;cticas</h5>
-                            <h1 class="precios"><span class="precio">700$</span><span class="precioAntiguo">1000$</span></h1>
-                            <div class="overlay">
-                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
-                                <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
-                            </div>           
-                        </div>           
-                    </li>
-                    <li class="portfolio-item col-md-2">
-                        <div class="itemCatalogo">
-                            <img src="images/portfolio/thumb/item3.jpg" alt="">
-                            <h5>League of Legends o como suspender</h5>
-                            <h1 class="precios"><span class="precio">50$</span><span class="precioAntiguo">100$</span></h1>
-                            <div class="overlay">
-                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
-                                <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
-                            </div>           
-                        </div>           
-                    </li>
-                    <li class="portfolio-item col-md-2">
-                        <div class="itemCatalogo">
-                            <img src="images/portfolio/thumb/item4.jpg" alt="">
-                            <h5>MUSE: el nacimiento de una leyenda</h5>
-                            <h1 class="precios"><span class="precio">50$</span><span class="precioAntiguo">100$</span></h1>
-                            <div class="overlay">
-                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
-                                <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
-                            </div>           
-                        </div>           
-                    </li>
-                    <li class="portfolio-item col-md-2">
-                        <div class="itemCatalogo">
-                            <img src="images/portfolio/thumb/item5.jpg" alt="">
-                            <h5>Como terminar al fin con el cat&aacute;logo</h5>
-                            <h1 class="precios"><span class="precio">50$</span><span class="precioAntiguo">100$</span></h1>
-                            <div class="overlay">
-                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
-                                <a class="preview glyphicon glyphicon-eye-open" href="info_curso.jsp" rel="prettyPhoto"><br><span>Ver</span></a>
-                            </div>           
-                        </div>           
-                    </li>
+                    <%
+                		ArrayList<Curso> dest = (ArrayList<Curso>) request.getAttribute("destacados");
+                		String h;
+                		for(int i=0; i<dest.size();i++){
+                	%>
+	                    <li class="portfolio-item col-md-2">
+	                        <div class="itemCatalogo">
+	                            <img src="images/portfolio/thumb/item3.jpg" alt="">
+	                            <h5><%=dest.get(i).getTitulo() %></h5>
+	                            <h1 class="precios"><span class="precio"><%=dest.get(i).getPrecio() %>&euro;</span><span class="precioAntiguo">200$</span></h1>
+	                            <div class="overlay">
+	                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
+	                                <% h=dest.get(i).getTitulo();%>
+	                                <a class="preview glyphicon glyphicon-eye-open" href="showCurso.form?titulo=<%=h %>" rel="prettyPhoto"><br><span>Ver</span></a>
+	                            </div>           
+	                        </div>           
+	                    </li>
+                    <%
+                		}
+                    %>
+                    
                 </ul>
 	           <div class="col-md-7 col-md-offset-4">
 	    	        <ul class="pagination">
