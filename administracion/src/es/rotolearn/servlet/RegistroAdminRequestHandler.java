@@ -20,8 +20,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-import es.rotolearn.entities.Usuario;
-
 
 public class RegistroAdminRequestHandler implements RequestHandler {
 	@Override

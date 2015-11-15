@@ -19,7 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
-import es.rotolearn.entities.Usuario;
 import es.rotolearn.javabean.Registrobean;
 
 public class LoginRequestHandler implements RequestHandler {

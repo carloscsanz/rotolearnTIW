@@ -19,7 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
-import es.rotolearn.entities.Usuario;
 import es.rotolearn.javaBean.RegistroBean;
 
 public class LoginRequestHandler implements RequestHandler {
@@ -37,8 +36,6 @@ public class LoginRequestHandler implements RequestHandler {
 		
 		
 		//Creamos el usuario a buscar en la BBDD
-				Usuario newUsuario = new Usuario();	
-				newUsuario.setNickname(nick);
 				
 				/*Insercion a BBDD con DataSource*/
 				System.out.println("Vamos a probar a hacer la insercion por DATASOURCE");

@@ -15,8 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
-import es.rotolearn.entities.Usuario;
-
 public class RegistroRequestHandler implements RequestHandler {
 
 
@@ -87,63 +85,6 @@ public class RegistroRequestHandler implements RequestHandler {
 				ruta = "admin_reg.jsp";
 			}
 		}
-
-		
-		
-		
-		
-	/*//////////////////JPA///////////////////////////////////
-		/  LA CONSULTA A LA BBDD
-		// 1 Create the factory of Entity Manager
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("dokulearning");//ESTO ES CLAVE
-
-		// 2 Create the Entity Manager
-		EntityManager em = factory.createEntityManager();
-
-		// 3 Get one EntityTransaction
-		em.getTransaction().begin();
-
-		//Creamos el usuario a buscar en la BBDD
-		Usuario newUsuario = new Usuario();
-		
-		newUsuario.setNickname(request.getParameter("nick"));
-		Usuario resultado = em.find(newUsuario.getClass(), newUsuario.getNickname());
-		if(resultado == null){ // si no existe el usuario, puedo crearlo
-		//
-		// Modificar el html para quitar lo de la segunda contraseña y cambiar lo de la imagen por  un textbox
-		//
-		System.out.println("El getparameter " +  request.getParameter("nick") + "fin nombre");
-		System.out.println("voy a meter a este usuario " + newUsuario.getNickname());
-		newUsuario.setNombre(request.getParameter("nombre"));
-		newUsuario.setTipo(request.getParameter("optradio"));
-		newUsuario.setApellido1(request.getParameter("apellido1"));
-		newUsuario.setApellido2(request.getParameter("apellido2"));
-		newUsuario.setEmail(request.getParameter("email"));
-		newUsuario.setPass(String.valueOf(request.getParameter("pass").hashCode()));
-		//String.valueOf(request.getParameter("Password").hashCode());
-		//newUsuario.setFecha_Nac(request.getParameter("date")); es un string y espera un date
-		newUsuario.setDireccion(request.getParameter("direccion"));
-		newUsuario.setDescripcion(request.getParameter("descripcion"));
-		newUsuario.setIntereses(request.getParameter("intereses"));
-		newUsuario.setTelefono(request.getParameter("tlf"));
-		newUsuario.setImagen(request.getParameter("exampleInputFile"));
-		try {
-			em.persist(newUsuario);
-			
-		} catch (Exception e) {
-			System.out.println("Descripcion: " + e.getMessage());
-		}
-		
-		}	else{ 		System.out.println("Existe el usuario pues NO lo creo");
-					request.setAttribute("error","reg");
-						ruta = "formulario_registro.jsp";
-				}
-		
-
-		
-		em.getTransaction().commit();
-		em.close();
-	*/
 		return ruta;
 	}
 

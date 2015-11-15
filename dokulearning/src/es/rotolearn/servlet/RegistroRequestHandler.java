@@ -20,7 +20,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-import es.rotolearn.entities.Usuario;
 import es.rotolearn.javaBean.RegistroBean;
 
 public class RegistroRequestHandler implements RequestHandler {
