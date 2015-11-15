@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="es.rotolearn.tablas.Curso" %>
 <html lang="es">
 <head>
   <title>Alta de cursos</title>
@@ -79,7 +81,6 @@
                 <tr>
                     <th>Aceptar</th>
                     <th>Rechazar</th>
-                    <th>Id</th>
                     <th>T&iacute;tulo</th>
                     <th>Profesor</th>
                     <th>Dificultad</th>
@@ -91,32 +92,35 @@
                 </tr>
             </thead>
             <tbody>
+               	<%
+               		ArrayList<Curso> val = (ArrayList<Curso>) request.getAttribute("validados");
+               		String h;
+               		for(int i=0; i<val.size();i++){
+               	%>
+            
                 <tr>
-                    <td><input class="btn btn-default btn-xs" type="submit" value="Aceptar"></td>
-                    <td><input class="btn btn-default btn-xs" type="submit" value="Rechazar"></td>
-                    <td>C1</td>
-                    <td>Curso de JAVA</td>
-                    <td>Pepito</td>
-                    <td>Imposible</td>
-                    <td>288</td>
-                    <td>300</td>
-                    <td>Programacion</td>
-                    <td>Curso de Java avanzado</td>
-                    <td>java.jpg</td>
+                	<td>
+                		<form action="validar.form">
+                    		<input class="btn btn-default btn-xs" type="submit" value="Aceptar">
+                    	</form>
+                    </td>
+                    <td>
+                    	<form action="denegar.form">
+                     		<input class="btn btn-default btn-xs" type="submit" value="Rechazar">
+                    	</form>
+                    </td> 
+                    <td><%=val.get(i).getTitulo() %></td>
+                    <td><%=val.get(i).getUsuario() %></td>
+                    <td><%=val.get(i).getDificultad() %></td>
+                    <td><%=val.get(i).getHoras() %></td>
+                    <td><%=val.get(i).getPrecio() %></td>
+                    <td><%=val.get(i).getCategoria() %></td>
+                    <td><%=val.get(i).getDescripcion() %></td>
+                    <td><%=val.get(i).getImagen() %></td>
                 </tr>
-                <tr>
-                    <td><input class="btn btn-default btn-xs" type="submit" value="Aceptar"></td>
-                    <td><input class="btn btn-default btn-xs" type="submit" value="Rechazar"></td>
-                    <td>C2</td>
-                    <td>JAVA for noobs</td>
-                    <td>Ataulfo</td>
-                    <td>Basico</td>
-                    <td>20</td>
-                    <td>25</td>
-                    <td>Programacion</td>
-                    <td>Curso de Java para noobs que no lo han tocado en su vida</td>
-                    <td>java1.jpg</td>
-                </tr>
+                <%
+               		}
+                %>
             </tbody>
             </table>
         </div>

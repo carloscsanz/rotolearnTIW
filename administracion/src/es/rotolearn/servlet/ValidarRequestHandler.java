@@ -9,10 +9,6 @@ import java.sql.Statement;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,7 +17,7 @@ import javax.sql.DataSource;
 
 import es.rotolearn.javabean.Registrobean;
 
-public class LoginRequestHandler implements RequestHandler {
+public class ValidarRequestHandler implements RequestHandler {
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,7 +32,7 @@ public class LoginRequestHandler implements RequestHandler {
 		
 				
 				/*Insercion a BBDD con DataSource*/
-				System.out.println("Vamos a probar a hacer la insercion por DATASOURCE");
+				System.out.println("Vamos a probar a hacer la modificacion por DATASOURCE");
 				InitialContext miInitialContext;
 				DataSource miDS;
 				try{
@@ -48,7 +44,7 @@ public class LoginRequestHandler implements RequestHandler {
 
 					Statement myStatement = conexion.createStatement();
 					System.out.println("Antes de la query");
-					ResultSet rs = myStatement.executeQuery("SELECT * FROM ADMIN WHERE Nickname='"+nick+"'");
+					ResultSet rs = myStatement.executeQuery("UPDATE CURSO SET Destacado='SI' WHERE Titulo='Curso de Prueba'");
 					System.out.println("Despues de la query");
 					
 						//existe el nick, comparar contraseñas
@@ -108,4 +104,5 @@ public class LoginRequestHandler implements RequestHandler {
 	
 return ruta;
 	}
+
 }
