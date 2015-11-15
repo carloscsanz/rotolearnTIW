@@ -37,7 +37,7 @@
                 	<ul class="nav navbar-nav">
                     	<li><a href="index.jsp">Inicio</a></li>
                         <!--<li><a href="perfil.form">Mi perfil</a></li>-->
-                        <li><a href="catalogo.jsp">Catalogo de cursos</a></li>
+                        <li><a href="catalogo.form">Catalogo de cursos</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         

@@ -33,7 +33,7 @@
                 	<ul class="nav navbar-nav">
                     	<li><a href="index.jsp">Inicio</a></li>
                         <!--<li><a href="perfil.form">Mi perfil</a></li>-->
-                        <li><a href="catalogo.jsp">Catalogo de cursos</a></li>
+                        <li><a href="catalogo.form">Catalogo de cursos</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         
@@ -77,17 +77,26 @@
 		<div class="row" id="cabeza" style="background-image:url('http://3.bp.blogspot.com/-YUeJUst1n6A/VDIxmSHjceI/AAAAAAAAR0I/XLKacnkg6ag/s1600/portada.jpg')">
 			<div class="col-md-3 col-md-offset-1" >
 			<% if(request.getAttribute("deseo")!=null) 
+				
 				if(request.getAttribute("deseo").equals("ok")){ %>
 				<div class="alert alert-success">
 	                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 					<strong>¡Curso a&ntilde;adido a la lista de deseos!</strong> 
 				</div>
-			<% }else{ %>
+			<% }else{ 
+			 
+			       if(session.getAttribute("usuario") == null){
+						%>
 				<div class="alert alert-danger">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<strong>¡Cuidado!</strong> ¡Necesitas loguearte para añadir a deseados!
+				</div>
+			<% }else{ %>
+			<div class="alert alert-danger">
 					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 					<strong>¡Cuidado!</strong> ¡Ya a&ntilde;adiste este curso!
 				</div>
-			<% } %>
+			<% }} %>
 				<ul class="list-group">
 					<li class="list-group-item titulo">
 						<span class="info"><%=aux.getTitulo() %></span>
