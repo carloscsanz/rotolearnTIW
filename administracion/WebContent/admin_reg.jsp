@@ -148,10 +148,47 @@
 						<label  for="descrip">Descripci&oacute;n</label>
 						<textarea class="form-control" rows="4" name="descripcion" placeholder="Escribe una breve descripci&oacute;n sobre ti"></textarea>
 					</div>
+					
+					
+					<label  for="intereses">Intereses</label>
 					<div class="form-group">  					
-						<label  for="intereses">Intereses</label>
-						<textarea class="form-control" rows="2" name="intereses" placeholder="Introduce tus intereses"></textarea>
+						
+						<div class="col-md-6">
+							<div class="checkbox">
+								<label><input type="checkbox" name="intereses1" value="Programacion">Programaci&oacute;n</label>
+							</div>
+							<div class="checkbox">
+							  	<label><input type="checkbox" name="intereses2" value="IT y Software">IT y Software</label>
+							</div>
+							<div class="checkbox">
+								<label><input type="checkbox" name="intereses3" value="Negocios">Negocios</label>
+							</div>
+							<div class="checkbox">
+								<label><input type="checkbox" name="intereses4" value="Diseño">Dise&ntilde;o</label>
+							</div>
+							<div class="checkbox">
+								<label><input type="checkbox" name="intereses5" value="Fotografia">Fotograf&iacute;a</label>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="checkbox">
+								<label><input type="checkbox" name="intereses6" value="Salud y Fitness">Salud y Fitness</label>
+							</div>
+							<div class="checkbox">
+								<label><input type="checkbox" name="intereses7" value="Lifestyle">Lifestyle</label>
+							</div>
+							<div class="checkbox">
+								<label><input type="checkbox" name="intereses8" value="Musica">M&uacute;sica</label>
+							</div>
+							<div class="checkbox">
+								<label><input type="checkbox" name="intereses9" value="Idioma">Idioma</label>
+							</div>
+							<div class="checkbox">
+								<label><input type="checkbox" name="intereses10" value="Academico">Acad&eacute;mico</label>
+							</div>
+						</div>
 					</div>
+					
 					<div class="form-group">					
 						<label for="tlf"><span class="red">*</span>Telefono</label>
 						<input type="number" class="form-control" name="tlf" required>

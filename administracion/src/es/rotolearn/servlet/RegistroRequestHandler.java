@@ -40,19 +40,18 @@ public class RegistroRequestHandler implements RequestHandler {
 
 			Statement myStatement = conexion.createStatement();
 		
-			//ResultSet rs = myStatement.executeQuery("SELECT * FROM USUARIO WHERE Nickname='"+nick+"'");
-			
-
-		//	if(rs.getString("Nickname") == null){ // si no existe el usuario, puedo crearlo
-				//
-				// Modificar el html para quitar lo de la segunda contraseña y cambiar lo de la imagen por  un textbox
-				//
+			String intereses="";
+			for(int i=1;i<11;i++){
+				if(request.getParameter("intereses"+i)!=null){
+					intereses = intereses+request.getParameter("intereses"+i)+"/";
+				}
+			}
 				
 			myStatement.executeUpdate("INSERT INTO USUARIO VALUES ('"+request.getParameter("optradio")+"','"+nick+"','"+
 			request.getParameter("nombre")+"','"+request.getParameter("apellido1")+"','"+request.getParameter("apellido2")+
 			"','"+String.valueOf(request.getParameter("pass").hashCode())+"','"+request.getParameter("date")+"','"+request.getParameter("exampleInputFile")
 			+"','"+request.getParameter("email")+"','"+request.getParameter("tlf")+"', '"+
-			request.getParameter("direccion")+"', '"+request.getParameter("descripcion")+"', '"+request.getParameter("intereses")+"')");
+			request.getParameter("direccion")+"', '"+request.getParameter("descripcion")+"', '"+intereses+"')");
 			
 			
 			myStatement.close();
