@@ -32,7 +32,7 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                 	<ul class="nav navbar-nav">
                     	<li><a href="index.jsp">Inicio</a></li>
-                        <!--<li><a href="perfil.jsp">Mi perfil</a></li>-->
+                        <!--<li><a href="perfil.form">Mi perfil</a></li>-->
                         <li><a href="catalogo.jsp">Catalogo de cursos</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -50,7 +50,7 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span> <%=session.getAttribute("usuario")%> <img src="./images/perfil/anonimo.jpeg" class="img-circle" alt="Cinque Terre" width="30" height="30"/></a>
                             <ul class="dropdown-menu">
-                                <li><a href="perfil.jsp"><span class="glyphicon glyphicon-user"></span>Mi perfil</a></li>
+                                <li><a href="perfil.form"><span class="glyphicon glyphicon-user"></span>Mi perfil</a></li>
                                 <% if(!perfil.getTipo().equals("alumn")){%>
                                 <li><a href="profes_panel.jsp"><span class="glyphicon glyphicon-th-large"></span>Panel de Control</a></li>
                                 <% }%> 
@@ -70,11 +70,24 @@
     <!--CUERPO-->
     <%
     	Curso aux = (Curso) request.getAttribute("curso");
+    	String h = aux.getTitulo();
     %>
     
 	<div id="cuerpo" class="container-fluid">
 		<div class="row" id="cabeza" style="background-image:url('http://3.bp.blogspot.com/-YUeJUst1n6A/VDIxmSHjceI/AAAAAAAAR0I/XLKacnkg6ag/s1600/portada.jpg')">
 			<div class="col-md-3 col-md-offset-1" >
+			<% if(request.getAttribute("deseo")!=null) 
+				if(request.getAttribute("deseo").equals("ok")){ %>
+				<div class="alert alert-success">
+	                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<strong>¡Curso a&ntilde;adido a la lista de deseos!</strong> 
+				</div>
+			<% }else{ %>
+				<div class="alert alert-danger">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<strong>¡Cuidado!</strong> ¡Ya a&ntilde;adiste este curso!
+				</div>
+			<% } %>
 				<ul class="list-group">
 					<li class="list-group-item titulo">
 						<span class="info"><%=aux.getTitulo() %></span>
@@ -102,6 +115,7 @@
 					</li>
 					<li class="list-group-item">
 						<button type="submit" class="btn btn-success breg">Inscribirse</button>
+						<a class="btn btn-success breg glyphicon glyphicon-heart" href="añadirDeseo.form?titulo=<%=h %>" rel="prettyPhoto"><span>  Deseado</span></a>
 					</li>
 				</ul>
 			</div>

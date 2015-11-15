@@ -68,7 +68,7 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                 	<ul class="nav navbar-nav">
                     	<li><a href="index.jsp">Inicio</a></li>
-                        <!--<li><a href="perfil.jsp">Mi perfil</a></li>-->
+                        <!--<li><a href="perfil.form">Mi perfil</a></li>-->
                         <li><a class="activa" href="logout.form">Cat&aacute;logo de cursos</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -86,7 +86,7 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span> <%=session.getAttribute("usuario")%> <img src="./images/perfil/anonimo.jpeg" class="img-circle" alt="Cinque Terre" width="30" height="30"/></a>
                             <ul class="dropdown-menu">
-                                <li><a href="perfil.jsp"><span class="glyphicon glyphicon-user"></span>Mi perfil</a></li>
+                                <li><a href="perfil.form"><span class="glyphicon glyphicon-user"></span>Mi perfil</a></li>
                                 <% if(!perfil.getTipo().equals("alumn")){%>
                                 <li><a href="profes_panel.jsp"><span class="glyphicon glyphicon-th-large"></span>Panel de Control</a></li>
                                 <% }%> 
@@ -128,8 +128,9 @@
                             <h5><%=dest.get(i).getTitulo() %></h5>
                             <h1 class="precios"><span class="precio"><%=dest.get(i).getPrecio() %>&euro;</span><span class="precioAntiguo">200$</span></h1>
                             <div class="overlay">
-                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
-                                <% h=dest.get(i).getTitulo();%>
+                             <% h=dest.get(i).getTitulo();%>
+                                <a class="preview glyphicon glyphicon-heart" href="añadirDeseo.form?titulo=<%=h %>" rel="prettyPhoto"><br><span>Deseado</span></a>
+                               
                                 <a class="preview glyphicon glyphicon-eye-open" href="showCurso.form?titulo=<%=h %>" rel="prettyPhoto"><br><span>Ver</span></a>
                             </div>           
                         </div>           
@@ -157,8 +158,9 @@
                             <h5><%=rec.get(i).getTitulo() %></h5>
                             <h1 class="precios"><span class="precio"><%=rec.get(i).getPrecio() %>&euro;</span><span class="precioAntiguo">200$</span></h1>
                             <div class="overlay">
-                                <a class="preview glyphicon glyphicon-heart" href="#" rel="prettyPhoto"><br><span>Deseado</span></a>
-                                <% a=rec.get(i).getTitulo();%>
+                            <% a=rec.get(i).getTitulo();%>
+                                <a class="preview glyphicon glyphicon-heart" href="añadirDeseo.form?titulo=<%=a %>" rel="prettyPhoto"><br><span>Deseado</span></a>
+                                
                                 <a class="preview glyphicon glyphicon-eye-open" href="showCurso.form?titulo=<%=a %>" rel="prettyPhoto"><br><span>Ver</span></a>
                             </div>           
                         </div>           

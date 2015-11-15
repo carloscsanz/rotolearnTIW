@@ -1,4 +1,6 @@
 <jsp:useBean id="perfil" class="es.rotolearn.javaBean.RegistroBean" scope="session"/>
+<%@ page import="es.rotolearn.tablas.Curso_Alumno" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -34,7 +36,7 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                 	<ul class="nav navbar-nav">
                     	<li><a href="index.jsp">Inicio</a></li>
-                        <!--<li><a href="perfil.jsp">Mi perfil</a></li>-->
+                        <!--<li><a href="perfil.form">Mi perfil</a></li>-->
                         <li><a href="catalogo.jsp">Catalogo de cursos</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -52,7 +54,7 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span> <%=session.getAttribute("usuario")%> <img src="./images/perfil/anonimo.jpeg" class="img-circle" alt="Cinque Terre" width="30" height="30"/></a>
                             <ul class="dropdown-menu">
-                                <li><a href="perfil.jsp"><span class="glyphicon glyphicon-user"></span>Mi perfil</a></li>
+                                <li><a href="perfil.form"><span class="glyphicon glyphicon-user"></span>Mi perfil</a></li>
                                 <% if(!perfil.getTipo().equals("alumn")){%>
                                 <li><a href="profes_panel.jsp"><span class="glyphicon glyphicon-th-large"></span>Panel de Control</a></li>
                                 <% }%> 
@@ -189,7 +191,33 @@
 
                         </div>
                         <div id="deseos" class="tab-pane fade">
-                            <p>Cada uno de los deseos que quiere el usuario</p>
+                             <table class="table table-condensed table-hover">
+                            <thead>
+                              <tr>                                   
+                               	<th>Curso</th>
+                              </tr>
+                            </thead>
+                        <%
+                        ArrayList<Curso_Alumno> dest = (ArrayList<Curso_Alumno>) request.getAttribute("deseos");
+                        if(dest.size()==0){
+                        	%>
+                        	<tbody>
+                               <tr>
+                                 <td>No tienes ningun deseo</td> 
+                               </tr>
+                            </tbody>
+                        	<% 
+                        }else{
+                		for(int i=0; i<dest.size();i++){
+                			String h = dest.get(i).getTitulo();
+                		%>
+                	  		<tbody>
+                               <tr>
+                                 <td><a href="showCurso.form?titulo=<%= h %>"><%= dest.get(i).getTitulo()%></a></td> 
+                               </tr>
+                            </tbody>
+                         <% }} %>
+                         </table>
                         </div>
                     </div>
 		        </div>

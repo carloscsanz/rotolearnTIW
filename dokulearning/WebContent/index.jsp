@@ -40,8 +40,8 @@
 			
 			<%}else{ %>
 			<div id="conectado" class="pull-right">
-				<a href="perfil.jsp"><img id="imgConectado" src="./images/perfil/anonimo.jpeg" class="img-circle" alt="Cinque Terre" width="40" height="40"></a>
-				<p id="nombreConectado"><a href="perfil.jsp"><%=session.getAttribute("usuario")%></a></p> 
+				<a href="perfil.form"><img id="imgConectado" src="./images/perfil/anonimo.jpeg" class="img-circle" alt="Cinque Terre" width="40" height="40"></a>
+				<p id="nombreConectado"><a href="perfil.form"><%=session.getAttribute("usuario")%></a></p> 
 			</div>
 			<%}%>
 			<div id="bienvenida" class="col-md-12">

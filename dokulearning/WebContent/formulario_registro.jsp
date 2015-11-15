@@ -26,7 +26,7 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li><a href="index.jsp">Inicio</a></li>
-                        <li><a href="perfil.jsp">Mi perfil</a></li>
+                        <li><a href="perfil.form">Mi perfil</a></li>
                         <li><a class="activa" href="catalogo.jsp">Catalogo de cursos</a></li>
                     </ul>
                     <%
@@ -40,12 +40,12 @@
 			</div>
 			<%}else{ %>
 			        <ul class="nav navbar-nav navbar-right">
-                       <li><a href="perfil.jsp"><%=session.getAttribute("usuario")%></a></li>
+                       <li><a href="perfil.form"><%=session.getAttribute("usuario")%></a></li>
                        <li class="dropdown">
                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img id="imgConectado" src="./images/perfil/anonimo.jpeg" class="img-circle" alt="Cinque Terre" width="40" height="40">
                             <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="perfil.jsp"><span class="glyphicon glyphicon-user"></span> Mi perfil</a></li>  
+                                <li><a href="perfil.form"><span class="glyphicon glyphicon-user"></span> Mi perfil</a></li>  
                              <% if(!perfil.getTipo().equals("alumn")){%>                     	
                         		<li><a href="profes_panel.jsp"><span class="glyphicon glyphicon-th-large"></span> Panel de control</a></li>
                         	 <% }%> 
