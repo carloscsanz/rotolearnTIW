@@ -74,7 +74,7 @@
     %>
     
 	<div id="cuerpo" class="container-fluid">
-		<div class="row" id="cabeza" style="background-image:url('http://3.bp.blogspot.com/-YUeJUst1n6A/VDIxmSHjceI/AAAAAAAAR0I/XLKacnkg6ag/s1600/portada.jpg')">
+		<div class="row" id="cabeza" style="background-image:url('<%=aux.getImagen() %>')">
 			<div class="col-md-3 col-md-offset-1" >
 			<% if(request.getAttribute("deseo")!=null) 
 				
