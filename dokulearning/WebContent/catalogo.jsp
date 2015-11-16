@@ -141,10 +141,13 @@
                 </ul>
             </div>
         </div>
+        <%
+        	if(session.getAttribute("usuario")!=null){
+        %>
 	    <div class="row" id="recomendados">
             <div class="col-md-12">
            		<form action="catalogo.form" method="post">
-            		<h1><span class="glyphicon glyphicon-stats"></span>Cursos recomendados<a href="busquedaAvanzada.form?recomendados=SI" class="verMas btn btn-default">Ver m&aacute;s</a></h1>
+            		<h1><span class="glyphicon glyphicon-stats"></span>Cursos recomendados</h1>
                 </form>
                 <ul class="portfolio-items">
                 	<%
@@ -171,6 +174,9 @@
                 </ul>
             </div>
         </div>
+        <%
+        	}
+        %>
         <a id="todos" href="busquedaAvanzada.form" class="btn btn-default btn-block"><span class="glyphicon glyphicon-search"></span>B&uacutesqueda avanzada </a>  
     </div>
     <!--PIE DE PAGINA-->
