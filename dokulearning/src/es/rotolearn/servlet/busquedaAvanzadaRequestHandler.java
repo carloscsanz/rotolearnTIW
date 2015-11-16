@@ -22,102 +22,113 @@ public class busquedaAvanzadaRequestHandler implements RequestHandler {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("HE ENTRADO AL HANDLER SHUR");
+		String ruta="busquedaAvanzada.jsp";
+		String query;
+		String destacados = request.getParameter("destacados");
+		String recomendados = request.getParameter("recomendados");
+		ArrayList<String> categorias = new ArrayList<String>();
 		String palabra = request.getParameter("palabra");
-		String categoria1 = request.getParameter("cat1");
-		String categoria2 = request.getParameter("cat2");
-		String categoria3 = request.getParameter("cat3");
-		String categoria4 = request.getParameter("cat4");
-		String categoria5 = request.getParameter("cat5");
-		String categoria6 = request.getParameter("cat6");
-		String categoria7 = request.getParameter("cat7");
-		String categoria8 = request.getParameter("cat8");
-		String categoria9 = request.getParameter("cat9");
-
-		String query = "SELECT * from CURSO";
-		
-		if((palabra != null && !palabra.equals(""))|| categoria1 != null || categoria2 != null || 
-	       categoria3 != null || categoria4 != null || categoria5 != null || 
-	       categoria6 != null || categoria7 != null || categoria8 != null || 
-	       categoria9 != null){
-			query = query+" WHERE ";
-			if(palabra != null && !palabra.equals("")){ //buscamos la palabra
-				System.out.println("PARALABRA: "+palabra);
-				String delimitadores= "[ .,;?!¡¿\'\"\\[\\]]+";
-				String[] palabrasSeparadas = palabra.split(delimitadores);
-				query = query+" (Titulo LIKE '%"+palabrasSeparadas[0]+"%'";
-				for(int i = 1; i < palabrasSeparadas.length; i++){
-					query = query+" OR Titulo LIKE '%"+palabrasSeparadas[i]+"%'";
-				}
-				query = query+")";
-			}
-			if(categoria1 != null || categoria2 != null || 
+		String[] palabrasSeparadas = null;
+		if(destacados != null && destacados.equals("SI")){
+			query = "SELECT * from CURSO WHERE Destacado LIKE 'SI'";
+		}
+		else if(recomendados != null && recomendados.equals("SI")){
+			query = "SELECT * from CURSO WHERE Destacado LIKE 'SI'";
+		}
+		else{
+			
+			String categoria1 = request.getParameter("cat1");
+			String categoria2 = request.getParameter("cat2");
+			String categoria3 = request.getParameter("cat3");
+			String categoria4 = request.getParameter("cat4");
+			String categoria5 = request.getParameter("cat5");
+			String categoria6 = request.getParameter("cat6");
+			String categoria7 = request.getParameter("cat7");
+			String categoria8 = request.getParameter("cat8");
+			String categoria9 = request.getParameter("cat9");
+			
+			query = "SELECT * from CURSO";
+			
+			if((palabra != null && !palabra.equals(""))|| categoria1 != null || categoria2 != null || 
 		       categoria3 != null || categoria4 != null || categoria5 != null || 
 		       categoria6 != null || categoria7 != null || categoria8 != null || 
 		       categoria9 != null){
-				int categorias = 0;
-				if(palabra != null && !palabra.equals(""))
-					query = query + " AND ";
-				query = query + " (";
-				if(categoria1 != null){
-					query = query+" Categoria LIKE '%"+categoria1+"%'";
-					categorias++;
+				query = query+" WHERE ";
+				if(palabra != null && !palabra.equals("")){ //buscamos la palabra
+					System.out.println("PARALABRA: "+palabra);
+					String delimitadores= "[ .,;?!¡¿\'\"\\[\\]]+";
+					palabrasSeparadas = palabra.split(delimitadores);
+					query = query+" (Titulo LIKE '%"+palabrasSeparadas[0]+"%'";
+					for(int i = 1; i < palabrasSeparadas.length; i++){
+						query = query+" OR Titulo LIKE '%"+palabrasSeparadas[i]+"%'";
+					}
+					query = query+")";
 				}
-				if(categoria2 != null){
-					if(categorias>0)
-						query = query+" OR";
-					query = query+" Categoria LIKE '%"+categoria2+"%'";
-					categorias++;
+				if(categoria1 != null || categoria2 != null || 
+			       categoria3 != null || categoria4 != null || categoria5 != null || 
+			       categoria6 != null || categoria7 != null || categoria8 != null || 
+			       categoria9 != null){
+					if(palabra != null && !palabra.equals(""))
+						query = query + " AND ";
+					query = query + " (";
+					if(categoria1 != null){
+						query = query+" Categoria LIKE '%"+categoria1+"%'";
+						categorias.add(categoria1);
+					}
+					if(categoria2 != null){
+						if(categorias.size()>0)
+							query = query+" OR";
+						query = query+" Categoria LIKE '%"+categoria2+"%'";
+						categorias.add(categoria2);
+					}
+					if(categoria3 != null){
+						if(categorias.size()>0)
+							query = query+" OR";
+						query = query+" Categoria LIKE '%"+categoria3+"%'";
+						categorias.add(categoria3);
+					}
+					if(categoria4 != null){
+						if(categorias.size()>0)
+							query = query+" OR";
+						query = query+" Categoria LIKE '%"+categoria4+"%'";
+						categorias.add(categoria4);
+					}
+					if(categoria5 != null){
+						if(categorias.size()>0)
+							query = query+" OR";
+						query = query+" Categoria LIKE '%"+categoria5+"%'";
+						categorias.add(categoria5);
+					}
+					if(categoria6 != null){
+						if(categorias.size()>0)
+							query = query+" OR";
+						query = query+" Categoria LIKE '%"+categoria6+"%'";
+						categorias.add(categoria6);
+					}
+					if(categoria7 != null){
+						if(categorias.size()>0)
+							query = query+" OR";
+						query = query+" Categoria LIKE '%"+categoria7+"%'";
+						categorias.add(categoria7);
+					}
+					if(categoria8 != null){
+						if(categorias.size()>0)
+							query = query+" OR";
+						query = query+" Categoria LIKE '%"+categoria8+"%'";
+						categorias.add(categoria8);
+					}
+					if(categoria9 != null){
+						if(categorias.size()>0)
+							query = query+" OR";
+						query = query+" Categoria LIKE '%"+categoria9+"%'";
+						categorias.add(categoria9);
+					}
+					query = query+")";
 				}
-				if(categoria3 != null){
-					if(categorias>0)
-						query = query+" OR";
-					query = query+" Categoria LIKE '%"+categoria3+"%'";
-					categorias++;
-				}
-				if(categoria4 != null){
-					if(categorias>0)
-						query = query+" OR";
-					query = query+" Categoria LIKE '%"+categoria4+"%'";
-					categorias++;
-				}
-				if(categoria5 != null){
-					if(categorias>0)
-						query = query+" OR";
-					query = query+" Categoria LIKE '%"+categoria5+"%'";
-					categorias++;
-				}
-				if(categoria6 != null){
-					if(categorias>0)
-						query = query+" OR";
-					query = query+" Categoria LIKE '%"+categoria6+"%'";
-					categorias++;
-				}
-				if(categoria7 != null){
-					if(categorias>0)
-						query = query+" OR";
-					query = query+" Categoria LIKE '%"+categoria7+"%'";
-					categorias++;
-				}
-				if(categoria8 != null){
-					if(categorias>0)
-						query = query+" OR";
-					query = query+" Categoria LIKE '%"+categoria8+"%'";
-					categorias++;
-				}
-				if(categoria9 != null){
-					if(categorias>0)
-						query = query+" OR";
-					query = query+" Categoria LIKE '%"+categoria9+"%'";
-					categorias++;
-				}
-				query = query+")";
-			}
-		}	
-		System.out.println("Palabra: "+palabra+" Macho: "+categoria2);
-		String ruta="busquedaAvanzada.jsp";
-		
+			}	
+		}
 		/*Consulta a la BBDD con DataSource*/
-		
+		System.out.println("LA QUERY ES ESTA: ["+query+"]...........................");
 		InitialContext miInitialContext;
 		DataSource miDS;
 		ArrayList<Curso> bus = new ArrayList<Curso>();
@@ -130,7 +141,6 @@ public class busquedaAvanzadaRequestHandler implements RequestHandler {
 			Connection conexion = miDS.getConnection();
 
 			Statement myStatement = conexion.createStatement();
-			System.out.println("LA QUERY: "+query);
 			ResultSet buscados = myStatement.executeQuery(query+" LIMIT 10");//Hay que cambiar la query
 
 			if(buscados!=null){
@@ -176,6 +186,8 @@ public class busquedaAvanzadaRequestHandler implements RequestHandler {
 				sqlException = sqlException.getNextException();
 			}
 		}
+		request.setAttribute("categorias", categorias);
+		request.setAttribute("palabras", palabrasSeparadas);
 		request.setAttribute("buscados", bus);
 
 		return ruta;

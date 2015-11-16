@@ -112,6 +112,10 @@
             </div>
         </div>
     </div>-->
+    <%
+    ArrayList<String> cats = (ArrayList<String>) request.getAttribute("categorias");
+    String[] palabras =(String[]) request.getAttribute("palabras");
+    %>
     <div class="container-fluid">
 	    <div class="row" id="cuerpo">
 	    	<div id="bAvanzada" class="col-md-2">
@@ -120,20 +124,32 @@
 					    <input class="form-control" id="palabra_clave" type="text" placeholder="Java, android, edici&oacute;n de videos, ..." name="palabra">
 					    <h3>Categor&iacute;as </h3>
 					    <div class="col-md-6">
-	      					<label><input type="checkbox" name="cat1" value="Programacion"> Programaci&oacute;n</label><br>
-	      					<label><input type="checkbox" name="cat2" value="IT y Software"> IT y Software</label><br>
-	      					<label><input type="checkbox" name="cat3" value="Negocios"> Negocios</label><br>
-	      					<label><input type="checkbox" name="cat4" value="Diseño"> Dise&ntilde;o</label><br>
+	      					<label><input type="checkbox" name="cat1" value="Programacion" <%if(cats != null && cats.contains("Programacion")){%>checked<%} %>> Programaci&oacute;n</label><br>
+	      					<label><input type="checkbox" name="cat2" value="IT y Software"<%if(cats != null && cats.contains("IT y Software")){%>checked<%} %>> IT y Software</label><br>
+	      					<label><input type="checkbox" name="cat3" value="Negocios"<%if(cats != null && cats.contains("Negocios")){%>checked<%} %>> Negocios</label><br>
+	      					<label><input type="checkbox" name="cat4" value="Diseño"<%if(cats != null && cats.contains("Diseño")){%>checked<%} %>> Dise&ntilde;o</label><br>
 	      				</div>
 					    <div class="col-md-6">
-	      					<label><input type="checkbox" name="cat5" value="Fotografia"> Fotograf&iacute;a</label><br>
-	      					<label><input type="checkbox" name="cat6" value="Salud y Fitness"> Salud y Fitness</label><br>
-	      					<label><input type="checkbox" name="cat7" value="Lifestyle"> Lifestyle</label><br>
-	      					<label><input type="checkbox" name="cat8" value="Musica"> M&uacute;sica</label><br>
-	      					<label><input type="checkbox" name="cat9" value="Idioma"> Idioma</label><br>
+	      					<label><input type="checkbox" name="cat5" value="Fotografia"<%if(cats != null && cats.contains("Fotografia")){%>checked<%} %>> Fotograf&iacute;a</label><br>
+	      					<label><input type="checkbox" name="cat6" value="Salud y Fitness"<%if(cats != null && cats.contains("Salud y Fitness")){%>checked<%} %>> Salud y Fitness</label><br>
+	      					<label><input type="checkbox" name="cat7" value="Lifestyle"<%if(cats != null && cats.contains("Lifestyle")){%>checked<%} %>> Lifestyle</label><br>
+	      					<label><input type="checkbox" name="cat8" value="Musica"<%if(cats != null && cats.contains("Musica")){%>checked<%} %>> M&uacute;sica</label><br>
+	      					<label><input type="checkbox" name="cat9" value="Idioma"<%if(cats != null && cats.contains("Idioma")){%>checked<%} %>> Idioma</label><br>
 	      				</div>
 					    <button id="palabra_clave_submit" type="submit" class="btn btn-default btn-block">Buscar</button>
                 </form>
+                <%if(palabras != null){ %>
+                <div id="tags" class="col-md-12">
+       	        <%
+               	for(int i=0; i<palabras.length;i++){
+                %>
+					<div class="alert alert-success">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+						<strong><%=palabras[i] %></strong>
+					</div>
+				<%} %>
+				</div>
+				<%} %>
             </div>
 
             <div id="cursos" class="col-md-10">

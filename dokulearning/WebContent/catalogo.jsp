@@ -105,8 +105,8 @@
     <div class="container-fluid">
 	    <div class="row" id="buscador">
             <div class="col-md-12">
-                <form class="field" id="searchform" action="#">
-                    <input type="text" id="searchterm" placeholder="Encuentra el curso que buscas" />
+                <form class="field" id="searchform" action="busquedaAvanzada.form">
+                    <input type="text" id="searchterm" name="palabra" placeholder="Encuentra el curso que buscas" />
                     <button type="submit" id="search" value="submit">Buscar</button>
                 </form>
             </div>
@@ -114,7 +114,7 @@
 	    <div class="row" id="destacados">
             <div class="col-md-12">
            		<form action="catalogo.form" method="post">
-            		<h1><span class="glyphicon glyphicon-star"></span>Cursos destacados<button type="submit" class="verMas btn btn-default">Ver m&aacute;s</button></h1>
+            		<h1><span class="glyphicon glyphicon-star"></span>Cursos destacados<a href="busquedaAvanzada.form?destacados=SI" class="verMas btn btn-default">Ver m&aacute;s</a></h1>
                 </form>
                 <ul class="portfolio-items">
                 	<%
@@ -144,7 +144,7 @@
 	    <div class="row" id="recomendados">
             <div class="col-md-12">
            		<form action="catalogo.form" method="post">
-            		<h1><span class="glyphicon glyphicon-stats"></span>Cursos recomendados<button type="submit" class="verMas btn btn-default">Ver m&aacute;s</button></h1>
+            		<h1><span class="glyphicon glyphicon-stats"></span>Cursos recomendados<a href="busquedaAvanzada.form?recomendados=SI" class="verMas btn btn-default">Ver m&aacute;s</a></h1>
                 </form>
                 <ul class="portfolio-items">
                 	<%
